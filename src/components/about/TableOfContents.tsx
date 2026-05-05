@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Column, Flex, Text } from "@once-ui-system/core";
+import Link from "next/link";
 import styles from "./about.module.scss";
 
 interface TableOfContentsProps {
@@ -82,6 +83,14 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
             )}
           </Column>
         ))}
+      <Column gap="12">
+        <Link className={styles.sidebarLink} href="/certifications">
+          <Flex cursor="interactive" className={styles.hover} gap="8" vertical="center">
+            <Flex height="1" minWidth="16" background="neutral-strong"></Flex>
+            <Text>Certifications</Text>
+          </Flex>
+        </Link>
+      </Column>
     </Column>
   );
 };

@@ -7,6 +7,7 @@ export const dynamic = "force-dynamic";
 
 const CREDLY_BADGES_URL = "https://www.credly.com/users/miguel-angel-ramirez-pena/badges.json";
 const CREDLY_PROFILE_URL = "https://www.credly.com/users/miguel-angel-ramirez-pena/badges#credly";
+const ISSUER_ORDER = ["The Linux Foundation", "O'Reilly Media"];
 
 type CredlyBadge = {
   id: string;
@@ -126,6 +127,14 @@ export default async function Certifications() {
 
   const groupedBadges = groupByIssuer(badges);
   const issuerNames = Object.keys(groupedBadges).sort((a, b) => {
+    const priorityA = ISSUER_ORDER.indexOf(a);
+    const priorityB = ISSUER_ORDER.indexOf(b);
+
+    if (priorityA !== -1 || priorityB !== -1) {
+      return (priorityA === -1 ? ISSUER_ORDER.length : priorityA) -
+        (priorityB === -1 ? ISSUER_ORDER.length : priorityB);
+    }
+
     return groupedBadges[b].length - groupedBadges[a].length || a.localeCompare(b);
   });
 
@@ -195,7 +204,7 @@ export default async function Certifications() {
                     </div>
 
                     <Column gap="8">
-                      <Text variant="heading-strong-m">{badge.name}</Text>
+                      <Text variant="heading-strong-s">{badge.name}</Text>
                       <Row gap="8" wrap>
                         {badge.category && <Tag size="s">{badge.category}</Tag>}
                         {badge.level && <Tag size="s">{badge.level}</Tag>}
