@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { notFound } from "next/navigation";
 
 type Team = {
   name: string;
@@ -21,7 +22,7 @@ type Metadata = {
   link?: string;
 };
 
-import { notFound } from "next/navigation";
+const PROJECTS_PATH = ["src", "app", "work", "projects"];
 
 function getMDXFiles(dir: string) {
   if (!fs.existsSync(dir)) {
@@ -68,7 +69,11 @@ function getMDXData(dir: string) {
   });
 }
 
-export function getPosts(customPath = ["", "", "", ""]) {
-  const postsDir = path.join(process.cwd(), ...customPath);
-  return getMDXData(postsDir);
+function getMdxEntries(customPath: string[]) {
+  const entriesDir = path.join(process.cwd(), ...customPath);
+  return getMDXData(entriesDir);
+}
+
+export function getProjectEntries() {
+  return getMdxEntries(PROJECTS_PATH);
 }
