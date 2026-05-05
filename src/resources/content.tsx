@@ -145,6 +145,23 @@ const about: About = {
         ],
         images: [],
       },
+       {
+        company: "Data Center for the Humanities DCH, University of Cologne, Germany",
+        timeframe: "10.2015 - 10.2021",
+        role: "Research Assistant and Fullstack Developer",
+        achievements: [
+          <>
+            Scientific Researcher for the BMBF-funded project KA3 at the Cologne Center for Analysis and Archiving of AV Data.
+          </>,
+          <>
+            As part of the project, build a frontend for curating and archiving AV data at the Cologne. The Language Archive Cologne (LAC) was designed for long-term and more intensive use. 
+          </>,
+          <>
+            The project is also testing the use of methods from the field of machine learning to recognize specific phenomena that can facilitate or even replace the process of manual annotation of large amounts of data. The results of the project are the current technical basis of the LAC and the KA3 services for audio analysis.
+          </>,
+        ],
+        images: [],
+      }
     ],
   },
   studies: {
