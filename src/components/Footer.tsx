@@ -4,6 +4,7 @@ import styles from "./Footer.module.scss";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const footerSocial = social.filter((item) => !["LinkedIn", "Credly"].includes(item.name));
 
   return (
     <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
@@ -31,7 +32,7 @@ export const Footer = () => {
           </Text>
         </Text>
         <Row gap="16">
-          {social.map(
+          {footerSocial.map(
             (item) =>
               item.link && (
                 <IconButton

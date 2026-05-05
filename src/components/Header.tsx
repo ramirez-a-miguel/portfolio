@@ -3,9 +3,9 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, IconButton, Line, Row, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
+import { routes, display, person, about, blog, work, gallery, social } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -44,6 +44,7 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const navbarSocial = social.filter((item) => ["LinkedIn", "Credly"].includes(item.name));
 
   return (
     <>
@@ -164,6 +165,24 @@ export const Header = () => {
                       selected={pathname.startsWith("/gallery")}
                     />
                   </Row>
+                </>
+              )}
+              {navbarSocial.length > 0 && (
+                <>
+                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
+                  {navbarSocial.map(
+                    (item) =>
+                      item.link && (
+                        <IconButton
+                          key={item.name}
+                          href={item.link}
+                          icon={item.icon}
+                          tooltip={item.name}
+                          size="s"
+                          variant="ghost"
+                        />
+                      ),
+                  )}
                 </>
               )}
               {display.themeSwitcher && (
