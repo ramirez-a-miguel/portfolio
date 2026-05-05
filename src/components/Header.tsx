@@ -44,7 +44,7 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
-  const navbarSocial = social.filter((item) => ["LinkedIn", "Credly"].includes(item.name));
+  const navbarSocial = social.filter((item) => item.name === "LinkedIn");
 
   return (
     <>
@@ -125,6 +125,25 @@ export const Header = () => {
                       prefixIcon="grid"
                       href="/work"
                       selected={pathname.startsWith("/work")}
+                    />
+                  </Row>
+                </>
+              )}
+              {routes["/certifications"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="document"
+                      href="/certifications"
+                      label="Certifications"
+                      selected={pathname.startsWith("/certifications")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="document"
+                      href="/certifications"
+                      selected={pathname.startsWith("/certifications")}
                     />
                   </Row>
                 </>
