@@ -1,0 +1,69 @@
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--static-space-12);
+}
+
+.summaryItem {
+  min-width: 0;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: var(--radius-m);
+  padding: var(--static-space-16);
+  background: var(--surface-background);
+}
+
+.issuerSection {
+  scroll-margin-top: var(--static-space-96);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--static-space-16);
+}
+
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--static-space-16);
+  min-width: 0;
+  min-height: 100%;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: var(--radius-m);
+  padding: var(--static-space-16);
+  background: var(--surface-background);
+}
+
+.imageWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 128px;
+}
+
+.badgeImage {
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+}
+
+.description {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+@media (max-width: 960px) {
+  .grid,
+  .summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .grid,
+  .summary {
+    grid-template-columns: 1fr;
+  }
+}

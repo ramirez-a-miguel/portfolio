@@ -31,7 +31,7 @@ const social: Social = [
   {
     name: "Credly",
     icon: "document",
-    link: "https://www.credly.com/users/miguel-angel-ramirez-pena/badges#credly",
+    link: "/certifications",
     essential: true,
   },
   {

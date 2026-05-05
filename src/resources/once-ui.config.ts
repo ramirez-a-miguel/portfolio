@@ -19,6 +19,7 @@ const baseURL: string = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:30
 const routes: RoutesConfig = {
   "/": true,
   "/about": true,
+  "/certifications": true,
   "/work": true,
   "/blog": false,
   "/gallery": false,
