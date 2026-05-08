@@ -1,0 +1,11 @@
+{
+  "name": "portfolio",
+  "engineVersion": "v0.20.8",
+  "dependencies": [
+    {
+      "name": "jest",
+      "source": "github.com/dagger/jest@main",
+      "pin": "5ba1efb9f071decc77e519f33d0b425e46465902"
+    }
+  ]
+}
