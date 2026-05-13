@@ -185,7 +185,7 @@
 
       "content": "# AWS Landing Zone Accelerator (LZA) Evaluation for Public Sector\n\n## Project Overview\nWorked at Deloitte together with an AWS Solutions Architect from Prague to design and evaluate a highly sensitive multi-account AWS Landing Zone architecture for the public sector.\n\nThe solution was built using:\n\n- AWS Landing Zone Accelerator (LZA)\n- AWS Organizations\n- AWS Control Tower\n- AWS CDK (TypeScript under the hood)\n- AWS-native CI/CD services\n- Terraform for comparison and evaluation\n\nAt the time, LZA was still relatively new and positioned closer to a proof-of-concept framework than a fully mature enterprise platform.\n\n---\n\n## Positive Outcomes\n\n### Governance and Standardization\nLZA provided strong governance conventions and predefined architectural patterns for:\n\n- security baselines,\n- logging and auditing,\n- networking structures,\n- multi-account management,\n- compliance-oriented setups.\n\nThis significantly accelerated the initial setup of a regulated cloud environment.\n\n### Reduced Platform Engineering Effort\nThe low-code and configuration-driven approach allowed complex AWS environments to be deployed without requiring a large cloud engineering team.\n\n### AWS Native Integration\nLZA integrated tightly with core AWS governance services including:\n\n- AWS Organizations,\n- AWS Control Tower,\n- AWS Config,\n- CloudTrail,\n- Security Hub,\n- SCPs,\n- centralized logging.\n\n---\n\n## Challenges and Limitations\n\n### Immaturity for Production Use\nAfter approximately six months of testing and deployments, the conclusion was that LZA in 2024 was still too immature for highly sensitive production environments.\n\nThe framework behaved more like an evolving reference architecture than a hardened enterprise-grade platform.\n\n### Limited Flexibility\nAlthough LZA exposed predefined templates and low-code configurations, the framework itself was tightly opinionated and strongly coupled to AWS-native services.\n\nCustomization outside AWS-defined patterns became difficult.\n\nCompared to Terraform-based Infrastructure as Code approaches, LZA provided:\n\n- less flexibility,\n- lower portability,\n- reduced reproducibility,\n- more difficult lifecycle management.\n\n### Tight Coupling to AWS CDK and CloudFormation\nUnder the hood, LZA relied heavily on AWS CDK and CloudFormation.\n\nOperational issues often required debugging generated templates and internal accelerator logic rather than simply modifying infrastructure definitions directly.\n\nThis made troubleshooting and recovery during deployment failures difficult.\n\n### CI/CD and Maintenance Complexity\nThe deployment pipeline depended heavily on AWS-native CI/CD tooling.\n\nProblems during deployment frequently required rebuilding or recreating accounts because some AWS resources required long deletion windows.\n\nThis created:\n\n- account sprawl,\n- operational overhead,\n- difficult maintenance workflows,\n- complex cleanup procedures.\n\n### Weak Environment Separation\nOne major architectural concern was the lack of clean separation between:\n\n- development,\n- staging,\n- production deployments.\n\nThe administrative account effectively acted as the central deployment environment, reducing reproducibility and increasing operational risk.\n\n### Sovereign Cloud and Regional Constraints\nLZA was tightly dependent on AWS Control Tower and region-specific AWS services.\n\nIn regions where some services were unavailable, deployments required moving components to alternative AWS regions.\n\nFor sovereign public sector environments with strict data residency requirements, this represented a significant limitation.\n\n---\n\n## Final Assessment\nThe project concluded that AWS Landing Zone Accelerator demonstrated strong governance potential and provided valuable AWS-native architectural conventions.\n\nHowever, in 2024 the framework was still too tightly coupled, operationally complex, and insufficiently flexible for highly regulated public sector environments requiring:\n\n- reproducible deployments,\n- operational transparency,\n- sovereign cloud guarantees,\n- infrastructure portability,\n- advanced customization,\n- and long-term maintainability.\n\nFor these requirements, Terraform-based Infrastructure as Code approaches provided significantly greater flexibility and operational control.",
 
-      "images": [],
+      "images": ["/public/images/landing-zone-accelerator-on-aws-1.png"],
 
       "link": "https://docs.aws.amazon.com/solutions/landing-zone-accelerator-on-aws/",
       "demoUrl": "https://www.youtube.com/watch?v=UHS_q1oODYM",
@@ -210,6 +210,52 @@
         {
           "name": "Miguel Ramirez",
           "role": "Technical Consultant",
+          "avatar": "/images/ramirez_miguel-avatar.jpg",
+          "linkedIn": "https://www.linkedin.com/in/miguelangelramirezpena/?locale=en_US"
+        }
+      ]
+    },
+    {
+      "slug": "lac-language-archive-cologne",
+
+      "title": "Language Archive Cologne (LAC) - Projekt KA³",
+
+      "publishedAt": "2021-01-01",
+
+      "summary": "Designed and implemented modern web applications and discovery interfaces for the Language Archive Cologne (LAC) as part of the KA³ research initiative at the University of Cologne. The platform supports the exploration, visualization, curation, and long-term archiving of audiovisual linguistic research data through scalable repository and metadata-driven architectures.",
+
+      "content": "# Language Archive Cologne (LAC) - KA³ Research Infrastructure\n\n## Project Overview\nThe Language Archive Cologne (LAC) is a research data repository developed at the University of Cologne for the preservation, curation, and exploration of audiovisual linguistic and humanities research data.\n\nThe project was part of the BMBF-funded KA³ initiative (Cologne Center for Analysis and Archiving of Audio-Visual Data), whose goal was to build a modern web-based self-archiving and discovery platform for language and audiovisual research collections.\n\nThe platform supports researchers, archivists, and humanities institutions by providing:\n\n- long-term archival infrastructure,\n- searchable metadata repositories,\n- audiovisual resource management,\n- geospatial exploration,\n- annotation and media workflows,\n- and structured research data access.\n\nThe project was developed in collaboration with:\n\n- University of Cologne,\n- Data Center for the Humanities (DCH),\n- Institute of Linguistics (IfL),\n- Fraunhofer IAIS,\n- Max Planck Institute Nijmegen,\n- and additional research partners.\n\nThe repository infrastructure later evolved into one of the technical foundations of the modern Language Archive Cologne platform and associated KA³-OS initiatives.\n\n---\n\n## Frontend Discovery Platform\nDeveloped a modern Angular-based discovery and archival UI for exploring Language Archive Cologne records through OData-driven APIs.\n\nThe frontend supported:\n\n- collections,\n- bundles,\n- audiovisual resources,\n- metadata facets,\n- geospatial archive visualization,\n- and advanced search workflows.\n\nThe application focused on usability for researchers and archivists working with large audiovisual datasets and multilingual linguistic resources.\n\n---\n\n## Key Frontend Features\n\n### Search and Discovery\n- URL-synchronized search state\n- Faceted filtering and drill-down workflows\n- Stable facet bucket rendering\n- Pagination and highlight support\n- Grid and list visualization modes\n\n### Archival Data Exploration\n- Collection and bundle dataviews\n- Structured metadata presentation\n- Resource tables with access indicators\n- Media preview and playback integration\n- Geospatial map rendering for language and recording locations\n\n### User Experience\n- Dark mode support\n- Responsive UI architecture\n- Shareable search state via URL routing\n- Administrative login entrypoints for protected workflows\n\n---\n\n## Architecture and Engineering\n\n### Frontend Stack\nThe frontend platform was built using:\n\n- Angular\n- PrimeNG\n- NgRx-inspired centralized state handling\n- OData APIs\n- TypeScript\n- RESTful and metadata-driven architectures\n\n### Architectural Principles\nThe platform followed several core architectural principles:\n\n- feature-first frontend organization,\n- strongly typed transport and UI models,\n- centralized search and UI state management,\n- URL-driven reproducible search context,\n- separation between API query composition and presentation layers.\n\n### Runtime Flow\nThe discovery UI architecture implemented:\n\n1. Centralized search state handling\n2. URL parameter synchronization\n3. Dynamic OData request composition\n4. Typed API entity mapping\n5. State-driven rendering for discovery dashboards and dataviews\n6. Asynchronous loading of related archival entities and metadata\n\n---\n\n## Research and Repository Context\nThe Language Archive Cologne (LAC) is part of a larger digital humanities and research preservation ecosystem.\n\nThe archive supports:\n\n- endangered language preservation,\n- oral history research,\n- audiovisual linguistic documentation,\n- multimodal annotation workflows,\n- and FAIR research data principles.\n\nThe repository infrastructure integrates with:\n\n- CLARIN ERIC,\n- CoreTrustSeal-certified archival standards,\n- OCFL (Oxford Common File Layout),\n- OAI-PMH metadata harvesting,\n- DataCite metadata workflows,\n- and IIIF-compatible media APIs.\n\nThe platform was designed to support sustainable long-term preservation and discovery of audiovisual research datasets in the humanities domain.\n\n---\n\n## Personal Contribution\nResponsible for frontend architecture, discovery UX, state-driven UI workflows, metadata visualization, and integration of archival search and exploration features.\n\nWorked on modernizing archival discovery workflows and improving usability for researchers interacting with complex audiovisual linguistic datasets and metadata-rich collections.",
+
+      "images": [],
+
+      "link": "https://dch.phil-fak.uni-koeln.de/en/research/bmbf-joint-project-ka3-cologne-center-for-analysis-and-archiving-of-av-data",
+
+      "demoUrl": "https://language-archive-cologne-frontend.vercel.app/",
+
+      "demoEmbedUrl": "",
+
+      "repositoryUrl": "",
+
+      "techStack": [
+        "Angular",
+        "Angular 21",
+        "PrimeNG",
+        "TypeScript",
+        "NgRx",
+        "OData",
+        "REST APIs",
+        "Grails",
+        "Java",
+        "RxJS",
+        "Leaflet",
+        "OCFL",
+        "IIIF"
+      ],
+
+      "team": [
+        {
+          "name": "Miguel Ramirez",
+          "role": "Frontend Engineer / Technical Consultant",
           "avatar": "/images/ramirez_miguel-avatar.jpg",
           "linkedIn": "https://www.linkedin.com/in/miguelangelramirezpena/?locale=en_US"
         }
