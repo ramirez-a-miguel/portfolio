@@ -3,7 +3,7 @@
 import { useLanguage } from "@/components/LanguageProvider";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import type { PortfolioAbout, PortfolioHome, PortfolioPerson } from "@/types/portfolio-data";
-import { Avatar, Badge, Button, Column, Heading, Row, Text } from "@once-ui-system/core";
+import { Avatar, Button, Column, Heading, Row, Text } from "@once-ui-system/core";
 import type { ReactNode } from "react";
 import styles from "./home.module.scss";
 
@@ -73,45 +73,38 @@ export function HomeClient({
     <>
       <div className={styles.homeGrid}>
         <section className={styles.heroPanel}>
-          <Column fillWidth gap="24">
-            {home.featured.display && (
-              <Badge
-                background="brand-alpha-weak"
-                paddingX="12"
-                paddingY="4"
-                onBackground="neutral-strong"
-                textVariant="label-default-s"
-                arrow={false}
-                href={home.featured.href}
-              >
-                <Row paddingY="2" gap="12" vertical="center">
-                  <strong>{t("homeFeaturedLabel")}</strong>
-                </Row>
-              </Badge>
-            )}
-            <Heading wrap="balance" variant="display-strong-l">
-              {t("homeHeadline")}
-            </Heading>
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {t("homeSubline")}
-            </Text>
-            <Row gap="12" wrap>
-              <Button href="/work" variant="primary" size="m" weight="default" arrowIcon>
-                {t("viewProjects")}
-              </Button>
-              <Button
-                id="about"
-                data-border="rounded"
-                href={about.path}
-                variant="secondary"
-                size="m"
-                weight="default"
-                arrowIcon
-              >
-                {t("aboutMiguel")}
-              </Button>
-            </Row>
-          </Column>
+          <div className={styles.heroLayout}>
+            <Column className={styles.heroContent} fillWidth gap="24">
+              <div className={styles.heroEyebrow}>{person.role}</div>
+              <Heading wrap="balance" variant="display-strong-l">
+                {t("homeHeadline")}
+              </Heading>
+              <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+                {t("homeSubline")}
+              </Text>
+              <Row className={styles.heroActions} gap="12" wrap>
+                <Button href="/work" variant="primary" size="m" weight="default" arrowIcon>
+                  {t("viewProjects")}
+                </Button>
+                <Button
+                  id="about"
+                  data-border="rounded"
+                  href={about.path}
+                  variant="secondary"
+                  size="m"
+                  weight="default"
+                  arrowIcon
+                >
+                  {t("aboutMiguel")}
+                </Button>
+              </Row>
+            </Column>
+            <div className={styles.heroRail} aria-hidden="true">
+              <span>Cloud</span>
+              <span>Security</span>
+              <span>Data</span>
+            </div>
+          </div>
         </section>
 
         <aside className={styles.sideGrid} aria-label="Portfolio summary">
