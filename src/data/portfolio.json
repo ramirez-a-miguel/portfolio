@@ -340,7 +340,7 @@
       "summary": "A full-stack observability proof of concept using Angular, NestJS, PostgreSQL, OpenTelemetry, Kubernetes, and Dash0.",
       "content": "Dash0 Observability Demo is a personal proof of concept that instruments a small full-stack application end to end. The Angular frontend records browser document-load and XHR traces, while the NestJS backend emits traces and metrics through OpenTelemetry. The backend exposes item-loading APIs backed by PostgreSQL and includes intentional failure paths for testing error observability. Kubernetes manifests deploy the frontend, backend, Postgres database, and OpenTelemetry Collector, which forwards telemetry to Dash0. A Prometheus-style dashboard definition tracks request rate, error rate, and latency.",
       "logo": "",
-      "images": ["/images/dash0.avif"],
+      "images": ["/images/dash0.png"],
       "link": "",
       "demoUrl": "",
       "demoEmbedUrl": "",
