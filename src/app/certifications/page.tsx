@@ -8,8 +8,8 @@ export const dynamic = "force-dynamic";
 const CREDLY_BADGES_URL = "https://www.credly.com/users/miguel-angel-ramirez-pena/badges.json";
 const CREDLY_PROFILE_URL = "https://www.credly.com/users/miguel-angel-ramirez-pena/badges#credly";
 const ISSUER_ORDER = [
-  ["Oracle", "Oracle University"],
   ["The Linux Foundation"],
+  ["Oracle", "Oracle University"],
   ["Amazon Web Services Training and Certification"],
   ["Google Cloud"],
   ["Microsoft"],
@@ -259,6 +259,31 @@ function getIssuerPriority(issuer: string) {
   );
 }
 
+function getLinuxFoundationBadgePriority(badge: BadgeView) {
+  const normalizedName = badge.name.toLowerCase();
+
+  if (normalizedName.includes("advanced cloud engineer")) return 0;
+  if (normalizedName.includes("cloud engineer")) return 1;
+  if (normalizedName.includes("kubernetes")) return 2;
+
+  return 3;
+}
+
+function sortBadgesForIssuer(issuer: string, badges: BadgeView[]) {
+  const normalizedIssuer = issuer.toLowerCase();
+
+  return [...badges].sort((a, b) => {
+    if (normalizedIssuer.includes("linux foundation")) {
+      const priorityDifference =
+        getLinuxFoundationBadgePriority(a) - getLinuxFoundationBadgePriority(b);
+
+      if (priorityDifference !== 0) return priorityDifference;
+    }
+
+    return new Date(b.issuedAt).getTime() - new Date(a.issuedAt).getTime();
+  });
+}
+
 export default async function Certifications() {
   let badges: BadgeView[] = ORACLE_BADGES;
   let error = false;
@@ -276,6 +301,10 @@ export default async function Certifications() {
   badges.sort((a, b) => new Date(b.issuedAt).getTime() - new Date(a.issuedAt).getTime());
 
   const groupedBadges = groupByIssuer(badges);
+  for (const issuer of Object.keys(groupedBadges)) {
+    groupedBadges[issuer] = sortBadgesForIssuer(issuer, groupedBadges[issuer]);
+  }
+
   const issuerNames = Object.keys(groupedBadges).sort((a, b) => {
     const priorityA = getIssuerPriority(a);
     const priorityB = getIssuerPriority(b);
