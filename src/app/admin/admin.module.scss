@@ -1,0 +1,75 @@
+.shell {
+  width: 100%;
+}
+
+.panel {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: 0.5rem;
+  background: var(--surface-background);
+}
+
+.panel h2,
+.project h3 {
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+  color: var(--neutral-on-background-weak);
+  font: var(--font-label);
+  font-size: 0.875rem;
+}
+
+.field input,
+.field textarea,
+.json {
+  width: 100%;
+  border: 1px solid var(--neutral-alpha-medium);
+  border-radius: 0.5rem;
+  background: var(--page-background);
+  color: var(--neutral-on-background-strong);
+  font: inherit;
+  padding: 0.75rem;
+}
+
+.field textarea,
+.json {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.json {
+  font-family: var(--font-code-family), monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.project {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: 0.5rem;
+}
+
+.message {
+  margin: 0;
+  color: var(--brand-on-background-strong);
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

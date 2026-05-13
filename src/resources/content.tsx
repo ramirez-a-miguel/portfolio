@@ -1,12 +1,12 @@
-import { About, Home, Person, Social, Work } from "@/types";
+import type { About, Home, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
   firstName: "Miguel",
   lastName: "Ramirez",
-  name: `Miguel Ramirez`,
+  name: "Miguel Ramirez",
   role: "Senior Cloud Engineer / Consultant",
-  avatar: "/images/avatar.jpg",
+  avatar: "/images/ramirez_miguel-avatar.jpg",
   email: "miguel.ramirez@gmx.de",
   location: "Europe/Amsterdam",
   languages: ["Spanish", "German", "English", "Portuguese"],
@@ -59,8 +59,8 @@ const home: Home = {
   subline: (
     <>
       I'm Miguel, a Senior Cloud Engineer and Consultant in Amsterdam. I help organizations
-      translate complex business needs into cloud strategy, scalable architecture, and
-      modernization roadmaps.
+      translate complex business needs into cloud strategy, scalable architecture, and modernization
+      roadmaps.
     </>
   ),
 };
@@ -86,11 +86,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Miguel is an IT expert with over a decade of experience across the DACH region,
-        specializing in technical consulting, cloud strategy, and infrastructure modernization.
-        His work bridges business requirements and technical architecture, with a strong focus on
-        Oracle Cloud Infrastructure, Kubernetes, enterprise database platforms, and secure
-        multi-cloud environments.
+        Miguel is an IT expert with over a decade of experience across the DACH region, specializing
+        in technical consulting, cloud strategy, and infrastructure modernization. His work bridges
+        business requirements and technical architecture, with a strong focus on Oracle Cloud
+        Infrastructure, Kubernetes, enterprise database platforms, and secure multi-cloud
+        environments.
       </>
     ),
   },
@@ -103,19 +103,9 @@ const about: About = {
         timeframe: "06.2024 - Current",
         role: "Senior Account Cloud Engineer / Senior Technical Solutions Engineer",
         achievements: [
-          <>
-            Acts as a trusted advisor for customers, working with pre-sales managers, cloud
-            architects, and subject matter experts to understand customer objectives and shape
-            cloud-native enterprise solutions on Oracle Cloud Infrastructure.
-          </>,
-          <>
-            Designs technical architectures and supports adoption, optimization, and governance for
-            OCI, Oracle Database Services, Oracle Autonomous AI Database, and Kubernetes Engine.
-          </>,
-          <>
-            Previously served as Technical Solutions Engineer for database platforms in the DACH
-            region, providing on-premises, hybrid, and cloud technology solutions.
-          </>,
+          "Acts as a trusted advisor for customers, working with pre-sales managers, cloud architects, and subject matter experts to understand customer objectives and shape cloud-native enterprise solutions on Oracle Cloud Infrastructure.",
+          "Designs technical architectures and supports adoption, optimization, and governance for OCI, Oracle Database Services, Oracle Autonomous AI Database, and Kubernetes Engine.",
+          "Previously served as Technical Solutions Engineer for database platforms in the DACH region, providing on-premises, hybrid, and cloud technology solutions.",
         ],
         images: [],
       },
@@ -124,38 +114,23 @@ const about: About = {
         timeframe: "04.2022 - 05.2024",
         role: "Technical Consultant / Business Analyst",
         achievements: [
-          <>
-            Delivered enterprise cloud solutions and secure landing zones aligned with BSI
-            IT-Grundschutz and BSI C5 standards, including work with AWS Landing Zone Accelerator.
-          </>,
-          <>
-            Built architectural documentation, runbooks, playbooks, CI/CD pipelines, and Cloud
-            FinOps reporting with Txture to support cloud operations and cost transparency.
-          </>,
-          <>
-            Collaborated in international agile environments on cloud-native applications and
-            infrastructure modernization for automotive sector clients.
-          </>,
+          "Delivered enterprise cloud solutions and secure landing zones aligned with BSI IT-Grundschutz and BSI C5 standards, including work with AWS Landing Zone Accelerator.",
+          "Built architectural documentation, runbooks, playbooks, CI/CD pipelines, and Cloud FinOps reporting with Txture to support cloud operations and cost transparency.",
+          "Collaborated in international agile environments on cloud-native applications and infrastructure modernization for automotive sector clients.",
         ],
         images: [],
       },
-       {
+      {
         company: "Data Center for the Humanities DCH, University of Cologne, Germany",
         timeframe: "10.2015 - 10.2021",
         role: "Research Assistant and Fullstack Developer",
         achievements: [
-          <>
-            Scientific Researcher for the BMBF-funded project KA3 at the Cologne Center for Analysis and Archiving of AV Data.
-          </>,
-          <>
-            As part of the project, build a frontend for curating and archiving AV data at the Cologne. The Language Archive Cologne (LAC) was designed for long-term and more intensive use. 
-          </>,
-          <>
-            The project is also testing the use of methods from the field of machine learning to recognize specific phenomena that can facilitate or even replace the process of manual annotation of large amounts of data. The results of the project are the current technical basis of the LAC and the KA3 services for audio analysis.
-          </>,
+          "Scientific Researcher for the BMBF-funded project KA3 at the Cologne Center for Analysis and Archiving of AV Data.",
+          "As part of the project, build a frontend for curating and archiving AV data at the Cologne. The Language Archive Cologne (LAC) was designed for long-term and more intensive use.",
+          "The project is also testing the use of methods from the field of machine learning to recognize specific phenomena that can facilitate or even replace the process of manual annotation of large amounts of data. The results of the project are the current technical basis of the LAC and the KA3 services for audio analysis.",
         ],
         images: [],
-      }
+      },
     ],
   },
   studies: {
@@ -166,8 +141,8 @@ const about: About = {
         name: "DCI Digital Career Institute",
         description: (
           <>
-            AWS re/Start Program in Cloud Computing, Cologne, Germany — completed hands-on
-            training across AWS compute, storage, networking, CLI, CDK, SDK, Bash, and Python.
+            AWS re/Start Program in Cloud Computing, Cologne, Germany — completed hands-on training
+            across AWS compute, storage, networking, CLI, CDK, SDK, Bash, and Python.
           </>
         ),
       },
@@ -194,12 +169,7 @@ const about: About = {
             architectures, cloud strategy, assessments, and governance models.
           </>
         ),
-        tags: [
-          { name: "OCI" },
-          { name: "AWS" },
-          { name: "Hybrid Cloud" },
-          { name: "Multi-Cloud" },
-        ],
+        tags: [{ name: "OCI" }, { name: "AWS" }, { name: "Hybrid Cloud" }, { name: "Multi-Cloud" }],
         images: [],
       },
       {
@@ -242,9 +212,9 @@ const about: About = {
 
 const work: Work = {
   path: "/work",
-  label: "Work",
-  title: `Work – ${person.name}`,
-  description: `Cloud engineering and consulting work by ${person.name}`,
+  label: "Projects",
+  title: `Projects – ${person.name}`,
+  description: `Cloud engineering, modernization, and technical advisory projects by ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/work/projects
   // All projects will be listed on the /home and /work routes
 };

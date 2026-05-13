@@ -1,7 +1,7 @@
 /* :root {
   /*
   /* Override default variables here */
-  /*
+/*
   --font-size-display-multiplier:   1;
   --font-size-heading-multiplier:   1;
   --font-size-body-multiplier:      1;
@@ -16,8 +16,8 @@
 
   /*
   /* Example setup for custom colors */
-  /* Generate at: https://once-ui.com/customize */
-  /*
+/* Generate at: https://once-ui.com/customize */
+/*
   --scheme-brand-100: #08002f;
   --scheme-brand-200:  #04025c;
   --scheme-brand-300:  #1f398e;
@@ -67,3 +67,66 @@
   --scheme-neutral-600-50: rgba(137,152,159,0.5);
   /*
 }*/
+
+:root {
+  --portfolio-hover-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 42%, #f97316 100%);
+  --portfolio-tag-hover-gradient: linear-gradient(135deg, #14b8a6 0%, #8b5cf6 48%, #f59e0b 100%);
+  --portfolio-hover-shadow: 0 10px 28px rgba(14, 165, 233, 0.24);
+}
+
+a[class*="IconButton-module"],
+button[class*="IconButton-module"],
+a[class*="ToggleButton-module"][class*="button"],
+button[class*="ToggleButton-module"][class*="button"],
+[class*="Tag-module"][class*="tag"] {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms
+    ease, color 180ms ease;
+}
+
+a[class*="IconButton-module"]:hover,
+a[class*="IconButton-module"]:focus-visible,
+button[class*="IconButton-module"]:hover,
+button[class*="IconButton-module"]:focus-visible,
+a[class*="ToggleButton-module"][class*="button"]:hover,
+a[class*="ToggleButton-module"][class*="button"]:focus-visible,
+button[class*="ToggleButton-module"][class*="button"]:hover,
+button[class*="ToggleButton-module"][class*="button"]:focus-visible {
+  background: var(--portfolio-hover-gradient) !important;
+  border-color: transparent !important;
+  box-shadow: var(--portfolio-hover-shadow);
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+a[class*="IconButton-module"]:hover svg,
+a[class*="IconButton-module"]:focus-visible svg,
+button[class*="IconButton-module"]:hover svg,
+button[class*="IconButton-module"]:focus-visible svg,
+a[class*="ToggleButton-module"][class*="button"]:hover svg,
+a[class*="ToggleButton-module"][class*="button"]:focus-visible svg,
+button[class*="ToggleButton-module"][class*="button"]:hover svg,
+button[class*="ToggleButton-module"][class*="button"]:focus-visible svg {
+  color: #ffffff;
+  stroke: currentColor;
+}
+
+[class*="Tag-module"][class*="tag"] {
+  background: linear-gradient(var(--page-background), var(--page-background)) padding-box,
+    var(--portfolio-tag-hover-gradient) border-box;
+  border-color: transparent !important;
+}
+
+[class*="Tag-module"][class*="tag"]:hover,
+[class*="Tag-module"][class*="tag"]:focus-visible {
+  background: var(--portfolio-tag-hover-gradient) !important;
+  box-shadow: var(--portfolio-hover-shadow);
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+[class*="Tag-module"][class*="tag"]:hover span,
+[class*="Tag-module"][class*="tag"]:focus-visible span,
+[class*="Tag-module"][class*="tag"]:hover svg,
+[class*="Tag-module"][class*="tag"]:focus-visible svg {
+  color: #ffffff !important;
+}

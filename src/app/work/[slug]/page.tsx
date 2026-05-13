@@ -1,22 +1,26 @@
-import { notFound } from "next/navigation";
+import { CustomMDX, ScrollToHash } from "@/components";
+import { Projects } from "@/components/work/Projects";
+import { getPortfolioDataSync } from "@/lib/portfolio-data";
+import { baseURL } from "@/resources";
+import { formatDate } from "@/utils/formatDate";
 import { getProjectEntries } from "@/utils/utils";
 import {
-  Meta,
-  Schema,
   AvatarGroup,
   Column,
   Heading,
-  Media,
-  Text,
-  SmartLink,
-  Row,
   Line,
+  Media,
+  Meta,
+  Row,
+  Schema,
+  SmartLink,
+  Tag,
+  Text,
 } from "@once-ui-system/core";
-import { baseURL, about, person, work } from "@/resources";
-import { formatDate } from "@/utils/formatDate";
-import { ScrollToHash, CustomMDX } from "@/components";
-import { Metadata } from "next";
-import { Projects } from "@/components/work/Projects";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+export const dynamic = "force-dynamic";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const projects = getProjectEntries();
@@ -36,7 +40,8 @@ export async function generateMetadata({
     : routeParams.slug || "";
 
   const projects = getProjectEntries();
-  let project = projects.find((project) => project.slug === slugPath);
+  const project = projects.find((project) => project.slug === slugPath);
+  const { work } = getPortfolioDataSync();
 
   if (!project) return {};
 
@@ -59,7 +64,8 @@ export default async function Project({
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
-  let project = getProjectEntries().find((project) => project.slug === slugPath);
+  const project = getProjectEntries().find((project) => project.slug === slugPath);
+  const { about, person, work } = getPortfolioDataSync();
 
   if (!project) {
     notFound();
@@ -125,9 +131,58 @@ export default async function Project({
           src={project.metadata.images[0]}
         />
       )}
+      {project.metadata.techStack && project.metadata.techStack.length > 0 && (
+        <Column maxWidth="xs" fillWidth gap="16">
+          <Heading as="h2" variant="heading-strong-l">
+            Tech stack
+          </Heading>
+          <Row wrap gap="8">
+            {project.metadata.techStack.map((technology) => (
+              <Tag key={technology} size="l">
+                {technology}
+              </Tag>
+            ))}
+          </Row>
+        </Column>
+      )}
+      {(project.metadata.demoEmbedUrl || project.metadata.demoUrl) && (
+        <Column maxWidth="m" fillWidth gap="16">
+          <Column maxWidth="xs" gap="8">
+            <Heading as="h2" variant="heading-strong-l">
+              Live demo
+            </Heading>
+            {project.metadata.demoUrl && (
+              <SmartLink href={project.metadata.demoUrl} suffixIcon="arrowUpRightFromSquare">
+                <Text variant="body-default-s">Open Vercel demo</Text>
+              </SmartLink>
+            )}
+          </Column>
+          {project.metadata.demoEmbedUrl && (
+            <Row
+              overflow="hidden"
+              radius="m"
+              border="neutral-alpha-weak"
+              background="surface"
+              style={{ aspectRatio: "16 / 9" }}
+            >
+              <iframe
+                title={`${project.metadata.title} demo`}
+                src={project.metadata.demoEmbedUrl}
+                loading="lazy"
+                style={{ border: "0", width: "100%", height: "100%" }}
+              />
+            </Row>
+          )}
+        </Column>
+      )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <CustomMDX source={project.content} />
       </Column>
+      {project.metadata.repositoryUrl && (
+        <SmartLink href={project.metadata.repositoryUrl} suffixIcon="github">
+          <Text variant="body-default-s">View repository</Text>
+        </SmartLink>
+      )}
       <Column fillWidth gap="40" horizontal="center" marginTop="40">
         <Line maxWidth="40" />
         <Heading as="h2" variant="heading-strong-xl" marginBottom="24">

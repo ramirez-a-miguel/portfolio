@@ -1,48 +1,44 @@
-import { IconType } from "react-icons";
-
 import {
-  HiArrowUpRight,
-  HiOutlineLink,
-  HiArrowTopRightOnSquare,
-  HiEnvelope,
-  HiCalendarDays,
-  HiArrowRight,
-  HiOutlineEye,
-  HiOutlineEyeSlash,
-  HiOutlineDocument,
-  HiOutlineGlobeAsiaAustralia,
-  HiOutlineRocketLaunch,
-} from "react-icons/hi2";
+  ArrowRight,
+  ArrowUpRight,
+  Braces,
+  CalendarDays,
+  CircleUserRound,
+  Eye,
+  EyeOff,
+  FileText,
+  GitBranch,
+  Globe2,
+  Grid2X2,
+  House,
+  Link,
+  type LucideIcon,
+  Mail,
+  Network,
+  Rocket,
+  SquareArrowOutUpRight,
+  Triangle,
+} from "lucide-react";
 
-import {
-  PiHouseDuotone,
-  PiUserCircleDuotone,
-  PiGridFourDuotone,
-} from "react-icons/pi";
-
-import { SiJavascript, SiNextdotjs } from "react-icons/si";
-
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
-
-export const iconLibrary: Record<string, IconType> = {
-  arrowUpRight: HiArrowUpRight,
-  arrowRight: HiArrowRight,
-  email: HiEnvelope,
-  globe: HiOutlineGlobeAsiaAustralia,
-  person: PiUserCircleDuotone,
-  grid: PiGridFourDuotone,
-  openLink: HiOutlineLink,
-  calendar: HiCalendarDays,
-  home: PiHouseDuotone,
-  eye: HiOutlineEye,
-  eyeOff: HiOutlineEyeSlash,
-  github: FaGithub,
-  linkedin: FaLinkedin,
-  arrowUpRightFromSquare: HiArrowTopRightOnSquare,
-  document: HiOutlineDocument,
-  rocket: HiOutlineRocketLaunch,
-  javascript: SiJavascript,
-  nextjs: SiNextdotjs,
+export const iconLibrary: Record<string, LucideIcon> = {
+  arrowUpRight: ArrowUpRight,
+  arrowRight: ArrowRight,
+  email: Mail,
+  globe: Globe2,
+  person: CircleUserRound,
+  grid: Grid2X2,
+  openLink: Link,
+  calendar: CalendarDays,
+  home: House,
+  eye: Eye,
+  eyeOff: EyeOff,
+  github: GitBranch,
+  linkedin: Network,
+  arrowUpRightFromSquare: SquareArrowOutUpRight,
+  document: FileText,
+  rocket: Rocket,
+  javascript: Braces,
+  nextjs: Triangle,
 };
 
 export type IconLibrary = typeof iconLibrary;

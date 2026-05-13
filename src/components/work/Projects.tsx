@@ -1,6 +1,6 @@
+import { ProjectCard } from "@/components";
 import { getProjectEntries } from "@/utils/utils";
 import { Column } from "@once-ui-system/core";
-import { ProjectCard } from "@/components";
 
 interface ProjectsProps {
   range?: [number, number?];
@@ -36,6 +36,9 @@ export function Projects({ range, exclude }: ProjectsProps) {
           content={post.content}
           avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
           link={post.metadata.link || ""}
+          demoUrl={post.metadata.demoUrl || ""}
+          repositoryUrl={post.metadata.repositoryUrl || ""}
+          techStack={post.metadata.techStack || []}
         />
       ))}
     </Column>

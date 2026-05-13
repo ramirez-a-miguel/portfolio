@@ -1,0 +1,226 @@
+{
+  "person": {
+    "firstName": "Miguel",
+    "lastName": "Ramirez",
+    "name": "Miguel Ramirez",
+    "role": "Senior Cloud Engineer / Consultant",
+    "avatar": "/images/ramirez_miguel-avatar.jpg",
+    "email": "miguel.ramirez@gmx.de",
+    "location": "Europe/Amsterdam",
+    "languages": ["Spanish", "German", "English", "Portuguese"]
+  },
+  "social": [
+    {
+      "name": "LinkedIn",
+      "icon": "linkedin",
+      "link": "https://www.linkedin.com/in/miguelangelramirezpena/?locale=en_US",
+      "essential": true
+    },
+    {
+      "name": "Credly",
+      "icon": "document",
+      "link": "/certifications",
+      "essential": true
+    },
+    {
+      "name": "Email",
+      "icon": "email",
+      "link": "mailto:miguel.ramirez@gmx.de",
+      "essential": true
+    }
+  ],
+  "home": {
+    "path": "/",
+    "image": "/images/og/home.jpg",
+    "label": "Home",
+    "title": "Miguel Ramirez's Portfolio",
+    "description": "Portfolio website showcasing my work as a Senior Cloud Engineer / Consultant",
+    "headline": "Cloud architecture, modernization, and technical advisory",
+    "subline": "I'm Miguel, a Senior Cloud Engineer and Consultant in Amsterdam. I help organizations translate complex business needs into cloud strategy, scalable architecture, and modernization roadmaps.",
+    "featured": {
+      "display": true,
+      "label": "Oracle Cloud - Current role",
+      "href": "/work/oracle-cloud-advisory"
+    }
+  },
+  "about": {
+    "path": "/about",
+    "label": "About",
+    "title": "About - Miguel Ramirez",
+    "description": "Meet Miguel Ramirez, Senior Cloud Engineer / Consultant based in Amsterdam, Netherlands",
+    "tableOfContent": {
+      "display": true,
+      "subItems": false
+    },
+    "avatar": {
+      "display": true
+    },
+    "calendar": {
+      "display": false,
+      "link": ""
+    },
+    "intro": {
+      "display": true,
+      "title": "Introduction",
+      "description": "Miguel is an IT expert with over a decade of experience across the DACH region, specializing in technical consulting, cloud strategy, and infrastructure modernization. His work bridges business requirements and technical architecture, with a strong focus on Oracle Cloud Infrastructure, Kubernetes, enterprise database platforms, and secure multi-cloud environments."
+    },
+    "work": {
+      "display": true,
+      "title": "Work Experience",
+      "experiences": [
+        {
+          "company": "Oracle",
+          "timeframe": "06.2024 - Current",
+          "role": "Senior Account Cloud Engineer / Senior Technical Solutions Engineer",
+          "achievements": [
+            "Acts as a trusted advisor for customers, working with pre-sales managers, cloud architects, and subject matter experts to understand customer objectives and shape cloud-native enterprise solutions on Oracle Cloud Infrastructure.",
+            "Designs technical architectures and supports adoption, optimization, and governance for OCI, Oracle Database Services, Oracle Autonomous AI Database, and Kubernetes Engine.",
+            "Previously served as Technical Solutions Engineer for database platforms in the DACH region, providing on-premises, hybrid, and cloud technology solutions."
+          ]
+        },
+        {
+          "company": "Deloitte Consulting GmbH",
+          "timeframe": "04.2022 - 05.2024",
+          "role": "Technical Consultant / Business Analyst",
+          "achievements": [
+            "Delivered enterprise cloud solutions and secure landing zones aligned with BSI IT-Grundschutz and BSI C5 standards, including work with AWS Landing Zone Accelerator.",
+            "Built architectural documentation, runbooks, playbooks, CI/CD pipelines, and Cloud FinOps reporting with Txture to support cloud operations and cost transparency.",
+            "Collaborated in international agile environments on cloud-native applications and infrastructure modernization for automotive sector clients."
+          ]
+        },
+        {
+          "company": "Data Center for the Humanities DCH, University of Cologne, Germany",
+          "timeframe": "10.2015 - 10.2021",
+          "role": "Research Assistant and Fullstack Developer",
+          "achievements": [
+            "Scientific Researcher for the BMBF-funded project KA3 at the Cologne Center for Analysis and Archiving of AV Data.",
+            "Built a frontend for curating and archiving AV data at the University of Cologne. The Language Archive Cologne was designed for long-term and intensive use.",
+            "Supported machine-learning experiments for recognizing phenomena that can reduce manual annotation effort in large AV datasets."
+          ]
+        }
+      ]
+    },
+    "studies": {
+      "display": true,
+      "title": "Studies",
+      "institutions": [
+        {
+          "name": "DCI Digital Career Institute",
+          "description": "AWS re/Start Program in Cloud Computing, Cologne, Germany - completed hands-on training across AWS compute, storage, networking, CLI, CDK, SDK, Bash, and Python."
+        },
+        {
+          "name": "University of Bonn",
+          "description": "Magister Artium in Communication Sciences and Phonetics with emphasis on Computational Linguistics; subsidiary studies in Romance philology and Ethnology."
+        }
+      ]
+    },
+    "technical": {
+      "display": true,
+      "title": "Technical Skills",
+      "skills": [
+        {
+          "title": "Cloud Architecture & Advisory",
+          "description": "Translating customer objectives and business requirements into scalable technical architectures, cloud strategy, assessments, and governance models.",
+          "tags": ["OCI", "AWS", "Hybrid Cloud", "Multi-Cloud"]
+        },
+        {
+          "title": "Cloud Native Engineering",
+          "description": "Certified Kubernetes and cloud engineer working across Kubernetes, OKE, container technologies, CI/CD, automation, and infrastructure modernization.",
+          "tags": ["CKA", "CKAD", "KCNA", "OKE", "Terraform", "Python"]
+        },
+        {
+          "title": "Enterprise Data Platforms",
+          "description": "Advising on Oracle database platforms, including Oracle Database, RAC, GoldenGate, Autonomous AI Database, database services, and migration architecture.",
+          "tags": ["Oracle Database", "Oracle RAC", "GoldenGate", "Autonomous Database"]
+        }
+      ]
+    }
+  },
+  "work": {
+    "path": "/work",
+    "label": "Projects",
+    "title": "Projects - Miguel Ramirez",
+    "description": "Cloud engineering, modernization, and technical advisory projects by Miguel Ramirez"
+  },
+  "projects": [
+    {
+      "slug": "oracle-cloud-advisory",
+      "title": "Oracle Cloud Advisory for Enterprise Customers",
+      "publishedAt": "2025-05-01",
+      "summary": "Trusted-advisor work shaping OCI adoption, optimization, governance, and enterprise database platform strategy.",
+      "content": "## Overview\n\nAs a Senior Account Cloud Engineer at Oracle in Amsterdam, Miguel works with pre-sales managers, cloud architects, and subject matter experts to understand customer objectives and translate them into technical cloud strategies.\n\n## Focus Areas\n\n- **OCI architecture**: Customer guidance for adopting, optimizing, and governing cloud-native enterprise solutions on Oracle Cloud Infrastructure.\n- **Business value**: Clear technical vision, scalability models, assessments, and architectures that connect cloud capabilities to customer outcomes.\n- **Enterprise data platforms**: Advisory across Oracle Database Services, Oracle Autonomous AI Database, Oracle Database, RAC, and GoldenGate.\n- **Cloud native platforms**: Work involving Kubernetes Engine on OCI and container-based enterprise solutions.",
+      "images": [],
+      "link": "",
+      "demoUrl": "",
+      "demoEmbedUrl": "",
+      "repositoryUrl": "",
+      "techStack": [
+        "Oracle Cloud Infrastructure",
+        "Oracle Database Services",
+        "Autonomous AI Database",
+        "Oracle Kubernetes Engine",
+        "Oracle RAC",
+        "Oracle GoldenGate"
+      ],
+      "team": [
+        {
+          "name": "Miguel Ramirez",
+          "role": "Senior Account Cloud Engineer",
+          "avatar": "/images/ramirez_miguel-avatar.jpg",
+          "linkedIn": "https://www.linkedin.com/in/miguelangelramirezpena/?locale=en_US"
+        }
+      ]
+    },
+    {
+      "slug": "secure-cloud-landing-zones",
+      "title": "Secure Cloud Landing Zones and Multi-Cloud Modernization",
+      "publishedAt": "2024-05-01",
+      "summary": "Deloitte cloud consulting work across secure landing zones, DevSecOps, Cloud FinOps, and multi-cloud infrastructure modernization.",
+      "content": "## Overview\n\nAt Deloitte Consulting GmbH, Miguel worked in the Cloud Transformation & Systems Engineering practice on enterprise cloud solutions and infrastructure modernization for customers in the DACH region.\n\n## Focus Areas\n\n- **Secure landing zones**: Designed and delivered landing zones aligned with BSI IT-Grundschutz and BSI C5 standards.\n- **Sovereign cloud proof of concept**: Partnered with AWS and Landing Zone Accelerator teams on a public-sector proof of concept incorporating confidential computing.\n- **Operational documentation**: Created architecture documentation, runbooks, and playbooks to standardize cloud operations.\n- **DevSecOps and FinOps**: Built CI/CD pipelines and implemented Cloud FinOps reporting with Txture to support cost transparency and operational control.\n- **Team enablement**: Supported nearshore onboarding and introduced low-code automation to streamline landing zone deployment.",
+      "images": [],
+      "link": "",
+      "demoUrl": "",
+      "demoEmbedUrl": "",
+      "repositoryUrl": "",
+      "techStack": [
+        "AWS",
+        "AWS Landing Zone Accelerator",
+        "AWS CDK",
+        "GitHub Actions",
+        "Azure DevOps",
+        "Txture",
+        "Python",
+        "Terraform"
+      ],
+      "team": [
+        {
+          "name": "Miguel Ramirez",
+          "role": "Technical Consultant",
+          "avatar": "/images/ramirez_miguel-avatar.jpg",
+          "linkedIn": "https://www.linkedin.com/in/miguelangelramirezpena/?locale=en_US"
+        }
+      ]
+    },
+    {
+      "slug": "vercel-portfolio-admin",
+      "title": "Editable Portfolio Admin and Vercel Demo Surface",
+      "publishedAt": "2026-05-13",
+      "summary": "A modernized portfolio section with stack notes, live demo links, and an authenticated content editor.",
+      "content": "## Overview\n\nThis portfolio now separates editable profile and project content from the application code. The admin area lets Miguel update homepage copy, profile basics, and project details directly from the browser.\n\n## What It Demonstrates\n\n- Authenticated editing with a signed session cookie.\n- JSON-backed portfolio data that can be swapped for hosted storage later.\n- Dedicated project pages with tech stack summaries and live demo links.\n- A lighter dependency footprint with modern icon and platform utilities.",
+      "images": [],
+      "link": "",
+      "demoUrl": "https://vercel.com",
+      "demoEmbedUrl": "",
+      "repositoryUrl": "",
+      "techStack": ["Next.js", "React", "TypeScript", "Vercel", "Once UI", "Lucide"],
+      "team": [
+        {
+          "name": "Miguel Ramirez",
+          "role": "Owner",
+          "avatar": "/images/ramirez_miguel-avatar.jpg",
+          "linkedIn": "https://www.linkedin.com/in/miguelangelramirezpena/?locale=en_US"
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import {
+import type {
   DataStyleConfig,
   DisplayConfig,
   EffectsConfig,
@@ -17,6 +17,7 @@ const baseURL: string = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:30
 const routes: RoutesConfig = {
   "/": true,
   "/about": true,
+  "/admin": true,
   "/certifications": true,
   "/work": true,
 };

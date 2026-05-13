@@ -6,7 +6,9 @@ import {
   Column,
   Flex,
   Heading,
+  Row,
   SmartLink,
+  Tag,
   Text,
 } from "@once-ui-system/core";
 
@@ -19,6 +21,9 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  demoUrl?: string;
+  repositoryUrl?: string;
+  techStack?: string[];
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -29,6 +34,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
+  demoUrl,
+  repositoryUrl,
+  techStack = [],
 }) => {
   return (
     <Column fillWidth gap="m">
@@ -64,6 +72,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 {description}
               </Text>
             )}
+            {techStack.length > 0 && (
+              <Row wrap gap="8">
+                {techStack.slice(0, 6).map((technology) => (
+                  <Tag key={technology} size="s">
+                    {technology}
+                  </Tag>
+                ))}
+              </Row>
+            )}
             <Flex gap="24" wrap>
               {content?.trim() && (
                 <SmartLink
@@ -81,6 +98,24 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   href={link}
                 >
                   <Text variant="body-default-s">View project</Text>
+                </SmartLink>
+              )}
+              {demoUrl && (
+                <SmartLink
+                  suffixIcon="arrowUpRightFromSquare"
+                  style={{ margin: "0", width: "fit-content" }}
+                  href={demoUrl}
+                >
+                  <Text variant="body-default-s">Live demo</Text>
+                </SmartLink>
+              )}
+              {repositoryUrl && (
+                <SmartLink
+                  suffixIcon="github"
+                  style={{ margin: "0", width: "fit-content" }}
+                  href={repositoryUrl}
+                >
+                  <Text variant="body-default-s">Repository</Text>
                 </SmartLink>
               )}
             </Flex>

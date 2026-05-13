@@ -1,19 +1,24 @@
+import { Projects } from "@/components/work/Projects";
+import { getPortfolioDataSync } from "@/lib/portfolio-data";
+import { baseURL } from "@/resources";
 import {
-  Heading,
-  Text,
-  Button,
   Avatar,
-  RevealFx,
-  Column,
   Badge,
+  Button,
+  Column,
+  Heading,
+  Meta,
+  RevealFx,
   Row,
   Schema,
-  Meta,
+  Text,
 } from "@once-ui-system/core";
-import { home, about, person, baseURL } from "@/resources";
-import { Projects } from "@/components/work/Projects";
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata() {
+  const { home } = getPortfolioDataSync();
+
   return Meta.generate({
     title: home.title,
     description: home.description,
@@ -24,6 +29,8 @@ export async function generateMetadata() {
 }
 
 export default function Home() {
+  const { home, about, person } = getPortfolioDataSync();
+
   return (
     <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
       <Schema
@@ -58,7 +65,9 @@ export default function Home() {
                 arrow={false}
                 href={home.featured.href}
               >
-                <Row paddingY="2">{home.featured.title}</Row>
+                <Row paddingY="2" gap="12" vertical="center">
+                  <strong className="ml-4">{home.featured.label}</strong>
+                </Row>
               </Badge>
             </RevealFx>
           )}
@@ -100,6 +109,14 @@ export default function Home() {
       <RevealFx translateY="16" delay={0.6}>
         <Projects range={[1, 1]} />
       </RevealFx>
+      <Column fillWidth gap="m" paddingX="l">
+        <Heading as="h2" variant="heading-strong-xl">
+          Featured projects
+        </Heading>
+        <Text onBackground="neutral-weak" variant="body-default-m">
+          A dedicated project section with tech stack notes, case studies, and Vercel demo links.
+        </Text>
+      </Column>
       <Projects range={[2]} />
     </Column>
   );

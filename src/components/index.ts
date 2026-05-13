@@ -1,6 +1,7 @@
 export { Header } from "@/components/Header";
 export { Footer } from "@/components/Footer";
 export { ProjectCard } from "@/components/ProjectCard";
+export { LoadingState } from "@/components/LoadingState";
 export { HeadingLink } from "@/components/HeadingLink";
 export { RouteGuard } from "@/components/RouteGuard";
 export { Providers } from "@/components/Providers";

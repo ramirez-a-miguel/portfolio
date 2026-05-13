@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { routes, protectedRoutes } from "@/resources";
-import { Flex, Spinner, Button, Heading, Column, PasswordInput } from "@once-ui-system/core";
 import NotFound from "@/app/not-found";
+import { protectedRoutes, routes } from "@/resources";
+import { Button, Column, Heading, PasswordInput } from "@once-ui-system/core";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { LoadingState } from "./LoadingState";
 
 interface RouteGuardProps {
   children: React.ReactNode;
@@ -77,10 +78,17 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
   };
 
   if (loading) {
+    const isCertifications = pathname?.startsWith("/certifications");
+
     return (
-      <Flex fillWidth paddingY="128" horizontal="center">
-        <Spinner />
-      </Flex>
+      <LoadingState
+        title={isCertifications ? "Loading certifications" : "Loading page"}
+        message={
+          isCertifications
+            ? "Checking the page and preparing the latest public Credly badges."
+            : "Checking the route and preparing the page."
+        }
+      />
     );
   }
 

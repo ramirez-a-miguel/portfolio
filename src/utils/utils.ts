@@ -1,7 +1,4 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { notFound } from "next/navigation";
+import { getPortfolioDataSync } from "@/lib/portfolio-data";
 
 type Team = {
   name: string;
@@ -17,63 +14,33 @@ type Metadata = {
   summary: string;
   image?: string;
   images: string[];
-  tag?: string;
+  tag?: string | string[];
   team: Team[];
   link?: string;
+  demoUrl?: string;
+  demoEmbedUrl?: string;
+  repositoryUrl?: string;
+  techStack?: string[];
 };
 
-const PROJECTS_PATH = ["src", "app", "work", "projects"];
-
-function getMDXFiles(dir: string) {
-  if (!fs.existsSync(dir)) {
-    notFound();
-  }
-
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
-}
-
-function readMDXFile(filePath: string) {
-  if (!fs.existsSync(filePath)) {
-    notFound();
-  }
-
-  const rawContent = fs.readFileSync(filePath, "utf-8");
-  const { data, content } = matter(rawContent);
-
-  const metadata: Metadata = {
-    title: data.title || "",
-    subtitle: data.subtitle || "",
-    publishedAt: data.publishedAt,
-    summary: data.summary || "",
-    image: data.image || "",
-    images: data.images || [],
-    tag: data.tag || [],
-    team: data.team || [],
-    link: data.link || "",
-  };
-
-  return { metadata, content };
-}
-
-function getMDXData(dir: string) {
-  const mdxFiles = getMDXFiles(dir);
-  return mdxFiles.map((file) => {
-    const { metadata, content } = readMDXFile(path.join(dir, file));
-    const slug = path.basename(file, path.extname(file));
-
-    return {
-      metadata,
-      slug,
-      content,
-    };
-  });
-}
-
-function getMdxEntries(customPath: string[]) {
-  const entriesDir = path.join(process.cwd(), ...customPath);
-  return getMDXData(entriesDir);
-}
-
 export function getProjectEntries() {
-  return getMdxEntries(PROJECTS_PATH);
+  return getPortfolioDataSync().projects.map((project) => ({
+    metadata: {
+      title: project.title,
+      subtitle: "",
+      publishedAt: project.publishedAt,
+      summary: project.summary,
+      image: project.images[0] || "",
+      images: project.images,
+      tag: "",
+      team: project.team,
+      link: project.link,
+      demoUrl: project.demoUrl,
+      demoEmbedUrl: project.demoEmbedUrl,
+      repositoryUrl: project.repositoryUrl,
+      techStack: project.techStack,
+    } satisfies Metadata,
+    slug: project.slug,
+    content: project.content,
+  }));
 }

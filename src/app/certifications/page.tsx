@@ -1,6 +1,6 @@
-import { Button, Column, Heading, Meta, Row, Tag, Text } from "@once-ui-system/core";
 import { baseURL, person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
+import { Button, Column, Heading, Meta, Row, Tag, Text } from "@once-ui-system/core";
 import styles from "./certifications.module.scss";
 
 export const dynamic = "force-dynamic";
@@ -131,8 +131,10 @@ export default async function Certifications() {
     const priorityB = ISSUER_ORDER.indexOf(b);
 
     if (priorityA !== -1 || priorityB !== -1) {
-      return (priorityA === -1 ? ISSUER_ORDER.length : priorityA) -
-        (priorityB === -1 ? ISSUER_ORDER.length : priorityB);
+      return (
+        (priorityA === -1 ? ISSUER_ORDER.length : priorityA) -
+        (priorityB === -1 ? ISSUER_ORDER.length : priorityB)
+      );
     }
 
     return groupedBadges[b].length - groupedBadges[a].length || a.localeCompare(b);
@@ -222,7 +224,12 @@ export default async function Certifications() {
                       </Text>
                     </Column>
 
-                    <Button href={badge.verifyUrl} prefixIcon="openLink" variant="secondary" size="s">
+                    <Button
+                      href={badge.verifyUrl}
+                      prefixIcon="openLink"
+                      variant="secondary"
+                      size="s"
+                    >
                       Verify badge
                     </Button>
                   </article>
