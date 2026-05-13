@@ -262,6 +262,35 @@
       ]
     },
     {
+      "slug": "fotissimo-motorsport-portfolio",
+      "title": "Fotissimo Motorsport Portfolio",
+      "publishedAt": "2025-05-13",
+      "summary": "A generic motorsport photo gallery for a photographer to upload, organize, browse, and display photo collections from his hobby archive.",
+      "content": "Fotissimo Motorsport Portfolio is an Angular and NestJS application built to support a photographer's motorsport hobby project. The goal is to provide a generic gallery where photo folders can be scanned into a catalog, displayed as browsable events, filtered by category or year, and opened as image galleries. The project also includes an upload flow so the photographer can add new photos through the application. Locally, photos can be served from the filesystem or MinIO, while the deployment proof of concept supports Google Cloud Storage for archive media, uploaded photos, and generated catalog data. The backend exposes APIs for events, categories, years, summaries, media files, and uploads, while the frontend provides the gallery, search/filter experience, and protected upload route.",
+      "images": [],
+      "link": "https://motorsport-portfolio.vercel.app/",
+      "demoUrl": "https://motorsport-portfolio.vercel.app/",
+      "demoEmbedUrl": "",
+      "repositoryUrl": "",
+      "techStack": [
+        "Angular",
+        "NestJS",
+        "TypeScript",
+        "MinIO",
+        "Google Cloud Storage",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "team": [
+        {
+          "name": "Miguel Ramirez",
+          "role": "Owner",
+          "avatar": "/images/ramirez_miguel-avatar.jpg",
+          "linkedIn": "https://www.linkedin.com/in/miguelangelramirezpena/?locale=en_US"
+        }
+      ]
+    },
+    {
       "slug": "",
       "title": "",
       "publishedAt": "",
