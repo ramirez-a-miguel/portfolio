@@ -178,7 +178,7 @@
     },
     {
       "slug": "secure-cloud-landing-zones",
-      "title": "AWS Landing Zone Accelerator (LZA) for a Highly Sensitive - Public Sector",
+      "title": "AWS Landing Zone Accelerator (LZA) for a Highly Sensitive Workloads",
       "publishedAt": "2024-05-01",
 
       "summary": "Designed and evaluated a highly sensitive multi-account AWS Landing Zone for the public sector using AWS Landing Zone Accelerator (LZA), AWS Organizations, and AWS Control Tower. The project focused on governance, security standardization, and sovereign cloud requirements. After several months of testing, the conclusion was that LZA in 2024 was still too immature for production-grade public sector environments due to operational complexity, tight coupling to AWS-native services, limited deployment flexibility, and difficult troubleshooting compared to Terraform-based Infrastructure as Code approaches.",
@@ -188,8 +188,8 @@
       "images": [],
 
       "link": "https://docs.aws.amazon.com/solutions/landing-zone-accelerator-on-aws/",
-      "demoUrl": "",
-      "demoEmbedUrl": "https://www.youtube.com/watch?v=UHS_q1oODYM",
+      "demoUrl": "https://www.youtube.com/watch?v=UHS_q1oODYM",
+      "demoEmbedUrl": "",
       "repositoryUrl": "https://github.com/awslabs/landing-zone-accelerator-on-aws?refid=sl_card",
 
       "techStack": [
