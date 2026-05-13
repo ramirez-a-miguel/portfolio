@@ -4,8 +4,23 @@ import { useLanguage } from "@/components/LanguageProvider";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import type { PortfolioAbout, PortfolioHome, PortfolioPerson } from "@/types/portfolio-data";
 import { Avatar, Button, Column, Heading, Row, Text } from "@once-ui-system/core";
-import type { ReactNode } from "react";
+import { motion } from "framer-motion";
+import { CloudCogIcon, DatabaseIcon, ShieldCheckIcon } from "lucide-animated";
+import type { ForwardRefExoticComponent, ReactNode, RefAttributes } from "react";
+import { useRef } from "react";
 import styles from "./home.module.scss";
+
+type AnimatedIconHandle = {
+  startAnimation: () => void;
+  stopAnimation: () => void;
+};
+
+type AnimatedIconComponent = ForwardRefExoticComponent<
+  {
+    className?: string;
+    size?: number;
+  } & RefAttributes<AnimatedIconHandle>
+>;
 
 const coreStack = [
   {
@@ -49,6 +64,53 @@ const coreStack = [
     logo: "/logos/python.svg",
   },
 ];
+
+const heroSignals: Array<{
+  label: string;
+  Icon: AnimatedIconComponent;
+}> = [
+  {
+    label: "Cloud architecture",
+    Icon: CloudCogIcon,
+  },
+  {
+    label: "Security governance",
+    Icon: ShieldCheckIcon,
+  },
+  {
+    label: "Data platforms",
+    Icon: DatabaseIcon,
+  },
+];
+
+function HeroSignalIcon({
+  Icon,
+  label,
+  index,
+}: {
+  Icon: AnimatedIconComponent;
+  label: string;
+  index: number;
+}) {
+  const iconRef = useRef<AnimatedIconHandle>(null);
+
+  return (
+    <motion.div
+      className={styles.heroRailItem}
+      aria-label={label}
+      title={label}
+      initial={{ opacity: 0, y: 14, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.42, delay: 0.12 + index * 0.08, ease: "easeOut" }}
+      whileHover={{ y: -6, scale: 1.04 }}
+      whileTap={{ scale: 0.98 }}
+      onHoverStart={() => iconRef.current?.startAnimation()}
+      onHoverEnd={() => iconRef.current?.stopAnimation()}
+    >
+      <Icon ref={iconRef} className={styles.heroRailIcon} size={44} />
+    </motion.div>
+  );
+}
 
 type HomeClientProps = {
   home: PortfolioHome;
@@ -99,10 +161,15 @@ export function HomeClient({
                 </Button>
               </Row>
             </Column>
-            <div className={styles.heroRail} aria-hidden="true">
-              <span>Cloud</span>
-              <span>Security</span>
-              <span>Data</span>
+            <div className={styles.heroRail}>
+              {heroSignals.map((signal, index) => (
+                <HeroSignalIcon
+                  key={signal.label}
+                  Icon={signal.Icon}
+                  label={signal.label}
+                  index={index}
+                />
+              ))}
             </div>
           </div>
         </section>

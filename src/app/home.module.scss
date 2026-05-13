@@ -105,29 +105,46 @@
   min-height: 18rem;
 }
 
-.heroRail span {
+.heroRailItem {
   display: grid;
+  aspect-ratio: 1;
   min-height: 4.25rem;
-  align-items: center;
-  padding-inline: 1rem;
+  place-items: center;
+  padding: 1rem;
   border: 1px solid var(--neutral-alpha-weak);
   border-radius: 0.5rem;
-  background: color-mix(in srgb, var(--page-background) 56%, transparent);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--brand-background-medium) 12%, transparent), transparent 64%),
+    color-mix(in srgb, var(--page-background) 58%, transparent);
   backdrop-filter: blur(12px);
   color: var(--neutral-on-background-strong);
-  font-size: 0.78rem;
-  font-weight: 650;
-  letter-spacing: 0;
-  line-height: 1;
-  text-transform: uppercase;
+  cursor: default;
+  transition:
+    border-color var(--transition-micro-medium),
+    background var(--transition-micro-medium),
+    color var(--transition-micro-medium),
+    box-shadow var(--transition-micro-medium);
 }
 
-.heroRail span:nth-child(2) {
+.heroRailItem:hover {
+  border-color: var(--brand-alpha-medium);
+  background:
+    radial-gradient(circle at 28% 18%, color-mix(in srgb, var(--brand-background-strong) 24%, transparent), transparent 40%),
+    var(--portfolio-hover-gradient);
+  color: #fff;
+  box-shadow: var(--portfolio-hover-shadow);
+}
+
+.heroRailItem:nth-child(2) {
   margin-left: 1rem;
 }
 
-.heroRail span:nth-child(3) {
+.heroRailItem:nth-child(3) {
   margin-left: 2rem;
+}
+
+.heroRailIcon {
+  color: currentColor;
 }
 
 .sideGrid {
@@ -228,9 +245,9 @@
     min-height: 0;
   }
 
-  .heroRail span,
-  .heroRail span:nth-child(2),
-  .heroRail span:nth-child(3) {
+  .heroRailItem,
+  .heroRailItem:nth-child(2),
+  .heroRailItem:nth-child(3) {
     min-height: 3.25rem;
     margin-left: 0;
   }

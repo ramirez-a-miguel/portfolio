@@ -131,7 +131,12 @@
         {
           "title": "Enterprise Data Platforms",
           "description": "Advising on Oracle database platforms, including Oracle Database, RAC, GoldenGate, Autonomous AI Database, database services, and migration architecture.",
-          "tags": ["Oracle Database", "Oracle RAC", "GoldenGate", "Autonomous Database"]
+          "tags": [
+            "Oracle Database",
+            "Oracle RAC",
+            "GoldenGate",
+            "Autonomous Database"
+          ]
         }
       ]
     }
@@ -281,6 +286,41 @@
         "Google Cloud Storage",
         "PostgreSQL",
         "Docker"
+      ],
+      "team": [
+        {
+          "name": "Miguel Ramirez",
+          "role": "Owner",
+          "avatar": "/images/ramirez_miguel-avatar.jpg",
+          "linkedIn": "https://www.linkedin.com/in/miguelangelramirezpena/?locale=en_US"
+        }
+      ]
+    },
+    {
+      "category": "personal",
+      "slug": "solution-desk",
+      "title": "Solution Desk",
+      "publishedAt": "2026-05-08",
+      "summary": "Electron, React, and PostgreSQL app for tracking pre-sales cloud opportunities, delivery progress, architecture inputs, SBOM data, and manager-ready reports.",
+      "content": "Solution Desk is a desktop and web-ready reporting tool built for pre-sales engineers and solutions architects. It helps track cloud opportunities across discovery, qualification, solution design, POC, proposal, and handover phases. The app includes portfolio metrics, project editing, task tracking, technology stack and SBOM capture, PostgreSQL persistence, offline seed data fallback, and exportable manager or architecture reports in clipboard, PDF, and CSV formats. It can run locally as an Electron desktop app, as a Vite web app with an Express API, inside Docker Compose, or through Vercel serverless deployment.",
+      "logo": "",
+      "images": [],
+      "link": "",
+      "demoUrl": "",
+      "demoEmbedUrl": "",
+      "repositoryUrl": "https://github.com/ramirez-a-miguel/sales-report-app",
+      "techStack": [
+        "Electron",
+        "React",
+        "TypeScript",
+        "Vite",
+        "Express",
+        "PostgreSQL",
+        "Docker Compose",
+        "Vercel",
+        "Material UI",
+        "Lucide React",
+        "jsPDF"
       ],
       "team": [
         {

@@ -12,6 +12,8 @@
   "dependencies": {
     "@once-ui-system/core": "latest",
     "lucide-react": "^1.14.0",
+    "framer-motion": "^11.18.2",
+    "lucide-animated": "^1.0.0",
     "next": "^16.2.6",
     "next-mdx-remote": "^6.0.0",
     "react": "^19.2.6",
