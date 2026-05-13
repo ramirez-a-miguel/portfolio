@@ -48,10 +48,43 @@
 }
 
 .stackList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.5rem;
   margin-top: 0.75rem;
+}
+
+.stackItem {
+  display: grid;
+  min-width: 0;
+  aspect-ratio: 1;
+  place-items: center;
+  padding: 0.65rem;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: 0.5rem;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--brand-background-medium) 12%, transparent), transparent 62%),
+    color-mix(in srgb, var(--page-background) 64%, transparent);
+  color: var(--neutral-on-background-strong);
+  transition:
+    transform var(--transition-micro-medium),
+    border-color var(--transition-micro-medium),
+    background var(--transition-micro-medium);
+}
+
+.stackItem:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand-alpha-medium);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--brand-background-medium) 22%, transparent), transparent 62%),
+    color-mix(in srgb, var(--page-background) 70%, transparent);
+}
+
+.stackItem img {
+  width: 70%;
+  max-width: 2.25rem;
+  max-height: 2.25rem;
+  object-fit: contain;
 }
 
 .projectsSection {
@@ -87,5 +120,9 @@
 
   .metricGrid {
     grid-template-columns: 1fr;
+  }
+
+  .stackList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

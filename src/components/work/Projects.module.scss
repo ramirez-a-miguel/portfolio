@@ -15,3 +15,170 @@
     left: -2rem;
     transition: var(--transition-micro-medium);
 }
+
+.bentoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: minmax(260px, auto);
+    gap: 1rem;
+    width: 100%;
+    padding-inline: var(--static-space-24);
+    margin-bottom: var(--static-space-40);
+}
+
+.bentoCard {
+    position: relative;
+    display: grid;
+    min-height: 260px;
+    overflow: hidden;
+    border: 1px solid var(--neutral-alpha-weak);
+    border-radius: 0.5rem;
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--brand-background-medium) 18%, transparent), transparent 54%),
+        color-mix(in srgb, var(--page-background) 76%, transparent);
+    color: inherit;
+    text-decoration: none;
+    transition:
+        transform var(--transition-micro-medium),
+        border-color var(--transition-micro-medium),
+        background var(--transition-micro-medium),
+        box-shadow var(--transition-micro-medium);
+
+    &:nth-child(2n) {
+        background:
+            linear-gradient(135deg, color-mix(in srgb, var(--accent-background-medium) 18%, transparent), transparent 56%),
+            color-mix(in srgb, var(--page-background) 78%, transparent);
+    }
+
+    &:nth-child(3n) {
+        background:
+            linear-gradient(135deg, color-mix(in srgb, var(--success-background-medium) 16%, transparent), transparent 56%),
+            color-mix(in srgb, var(--page-background) 78%, transparent);
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: var(--brand-alpha-medium);
+        background:
+            radial-gradient(circle at 16% 12%, color-mix(in srgb, var(--brand-background-strong) 34%, transparent), transparent 34%),
+            radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--accent-background-strong) 28%, transparent), transparent 36%),
+            linear-gradient(135deg, color-mix(in srgb, var(--brand-background-medium) 42%, transparent), color-mix(in srgb, var(--accent-background-medium) 28%, transparent) 48%, color-mix(in srgb, var(--success-background-medium) 22%, transparent));
+        box-shadow: 0 1rem 3rem color-mix(in srgb, var(--brand-background-strong) 22%, transparent);
+
+        .bentoMedia img {
+            transform: scale(1.04);
+        }
+    }
+
+    &:nth-child(2n):hover {
+        border-color: var(--accent-alpha-medium);
+        background:
+            radial-gradient(circle at 12% 16%, color-mix(in srgb, var(--accent-background-strong) 34%, transparent), transparent 34%),
+            radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--brand-background-strong) 28%, transparent), transparent 36%),
+            linear-gradient(135deg, color-mix(in srgb, var(--accent-background-medium) 42%, transparent), color-mix(in srgb, var(--brand-background-medium) 28%, transparent) 48%, color-mix(in srgb, var(--neutral-background-strong) 14%, transparent));
+    }
+
+    &:nth-child(3n):hover {
+        border-color: var(--success-alpha-medium);
+        background:
+            radial-gradient(circle at 18% 16%, color-mix(in srgb, var(--success-background-strong) 30%, transparent), transparent 34%),
+            radial-gradient(circle at 88% 14%, color-mix(in srgb, var(--brand-background-strong) 28%, transparent), transparent 36%),
+            linear-gradient(135deg, color-mix(in srgb, var(--success-background-medium) 38%, transparent), color-mix(in srgb, var(--brand-background-medium) 28%, transparent) 48%, color-mix(in srgb, var(--accent-background-medium) 22%, transparent));
+    }
+}
+
+.featuredCard {
+    grid-column: span 2;
+    grid-row: span 2;
+    min-height: 536px;
+}
+
+.bentoMedia {
+    position: relative;
+    min-height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--neutral-alpha-weak);
+    background: var(--neutral-alpha-weak);
+
+    img {
+        object-fit: cover;
+        transition: transform var(--transition-micro-medium);
+    }
+}
+
+.bentoLogo {
+    position: absolute;
+    z-index: 1;
+    top: 1rem;
+    right: 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    overflow: hidden;
+    border: 1px solid var(--neutral-alpha-weak);
+    border-radius: 0.5rem;
+    background: color-mix(in srgb, var(--page-background) 86%, transparent);
+    backdrop-filter: blur(12px);
+
+    img {
+        width: 100%;
+        height: 100%;
+        padding: 0.55rem;
+    }
+}
+
+.logoContain {
+    object-fit: contain;
+}
+
+.logoCover {
+    object-fit: cover;
+    padding: 0 !important;
+}
+
+.featuredCard .bentoMedia {
+    min-height: 300px;
+}
+
+.bentoContent {
+    align-self: end;
+    padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.bentoDescription {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.bentoTags {
+    margin-top: auto;
+}
+
+@media (max-width: 960px) {
+    .bentoGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .featuredCard {
+        grid-column: span 2;
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 640px) {
+    .bentoGrid {
+        grid-template-columns: 1fr;
+        padding-inline: var(--static-space-16);
+    }
+
+    .featuredCard {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 320px;
+    }
+
+    .featuredCard .bentoMedia {
+        min-height: 190px;
+    }
+}

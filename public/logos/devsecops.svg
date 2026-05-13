@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">DevSecOps</title>
+  <defs>
+    <linearGradient id="devsecopsGradient" x1="12" x2="52" y1="8" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#29B6F6"/>
+      <stop offset="0.5" stop-color="#7C4DFF"/>
+      <stop offset="1" stop-color="#00C853"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#devsecopsGradient)" d="M32 5 53 14v15c0 14-8.9 25.9-21 30-12.1-4.1-21-16-21-30V14L32 5Z"/>
+  <path fill="#fff" d="M27.6 40.6 18 31l4.2-4.2 5.4 5.4 14.2-14.2L46 22.2 27.6 40.6Z"/>
+  <path fill="#fff" fill-opacity=".86" d="M32 16a16 16 0 0 0-15.7 13h5.1a11 11 0 0 1 18.4-5.4l-3.4 3.4H48V15.4l-4.6 4.6A15.9 15.9 0 0 0 32 16Zm0 32a16 16 0 0 0 15.7-13h-5.1a11 11 0 0 1-18.4 5.4l3.4-3.4H16v11.6l4.6-4.6A15.9 15.9 0 0 0 32 48Z"/>
+</svg>

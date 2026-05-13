@@ -8,11 +8,13 @@ import styles from "./admin.module.scss";
 type SaveState = "idle" | "saving" | "saved" | "error";
 
 const emptyProject: PortfolioProject = {
+  category: "professional",
   slug: "new-project",
   title: "New Project",
   publishedAt: new Date().toISOString().slice(0, 10),
   summary: "",
   content: "## Overview\n\nDescribe the project here.",
+  logo: "",
   images: [],
   link: "",
   demoUrl: "",
@@ -399,6 +401,16 @@ export function AdminPortfolioEditor() {
               </Row>
               <div className={styles.grid}>
                 <Field
+                  label="Project type: professional or personal"
+                  value={project.category ?? "professional"}
+                  onChange={(value) =>
+                    updateProject(index, {
+                      ...project,
+                      category: value === "personal" ? "personal" : "professional",
+                    })
+                  }
+                />
+                <Field
                   label="Slug"
                   value={project.slug}
                   onChange={(value) => updateProject(index, { ...project, slug: value })}
@@ -419,6 +431,11 @@ export function AdminPortfolioEditor() {
                 label="Summary"
                 value={project.summary}
                 onChange={(value) => updateProject(index, { ...project, summary: value })}
+              />
+              <Field
+                label="Project logo path"
+                value={project.logo ?? ""}
+                onChange={(value) => updateProject(index, { ...project, logo: value })}
               />
               <Field
                 label="Tech stack, comma separated"

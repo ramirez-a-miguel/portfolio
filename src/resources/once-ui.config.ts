@@ -33,22 +33,21 @@ const display: DisplayConfig = {
 const protectedRoutes: ProtectedRoutesConfig = {};
 
 // Import and set font for each variant
-import { Geist } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
+import { Geist_Mono, Inter, Noto_Sans } from "next/font/google";
 
-const heading = Geist({
+const heading = Inter({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
 });
 
-const body = Geist({
+const body = Noto_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
 
-const label = Geist({
+const label = Inter({
   variable: "--font-label",
   subsets: ["latin"],
   display: "swap",

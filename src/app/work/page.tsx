@@ -1,7 +1,7 @@
 import { Projects } from "@/components/work/Projects";
 import { getPortfolioDataSync } from "@/lib/portfolio-data";
 import { baseURL } from "@/resources";
-import { Column, Heading, Media, Meta, Schema, Text } from "@once-ui-system/core";
+import { Column, Heading, Line, Media, Meta, Schema, Text } from "@once-ui-system/core";
 
 export const dynamic = "force-dynamic";
 
@@ -53,7 +53,29 @@ export default function Work() {
           Cloud architecture, secure platforms, data services, and modernization projects.
         </Text>
       </Column>
-      <Projects />
+      <Column fillWidth gap="16" marginBottom="40">
+        <Column gap="8" paddingX="l">
+          <Heading as="h2" variant="heading-strong-xl">
+            Professional projects
+          </Heading>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            Client-facing architecture, cloud, data, and modernization work.
+          </Text>
+        </Column>
+        <Projects category="professional" />
+      </Column>
+      <Column fillWidth gap="16" marginBottom="40">
+        <Line marginX="l" />
+        <Column gap="8" paddingX="l">
+          <Heading as="h2" variant="heading-strong-xl">
+            Personal projects
+          </Heading>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            Independent builds, experiments, and products I maintain outside client work.
+          </Text>
+        </Column>
+        <Projects category="personal" />
+      </Column>
     </Column>
   );
 }

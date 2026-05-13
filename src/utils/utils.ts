@@ -8,10 +8,12 @@ type Team = {
 };
 
 type Metadata = {
+  category?: "professional" | "personal";
   title: string;
   subtitle?: string;
   publishedAt: string;
   summary: string;
+  logo?: string;
   image?: string;
   images: string[];
   tag?: string | string[];
@@ -24,23 +26,27 @@ type Metadata = {
 };
 
 export function getProjectEntries() {
-  return getPortfolioDataSync().projects.map((project) => ({
-    metadata: {
-      title: project.title,
-      subtitle: "",
-      publishedAt: project.publishedAt,
-      summary: project.summary,
-      image: project.images[0] || "",
-      images: project.images,
-      tag: "",
-      team: project.team,
-      link: project.link,
-      demoUrl: project.demoUrl,
-      demoEmbedUrl: project.demoEmbedUrl,
-      repositoryUrl: project.repositoryUrl,
-      techStack: project.techStack,
-    } satisfies Metadata,
-    slug: project.slug,
-    content: project.content,
-  }));
+  return getPortfolioDataSync()
+    .projects.filter((project) => project.slug && project.title)
+    .map((project) => ({
+      metadata: {
+        category: project.category ?? "professional",
+        title: project.title,
+        subtitle: "",
+        publishedAt: project.publishedAt,
+        summary: project.summary,
+        logo: project.logo || "",
+        image: project.images[0] || "",
+        images: project.images,
+        tag: "",
+        team: project.team,
+        link: project.link,
+        demoUrl: project.demoUrl,
+        demoEmbedUrl: project.demoEmbedUrl,
+        repositoryUrl: project.repositoryUrl,
+        techStack: project.techStack,
+      } satisfies Metadata,
+      slug: project.slug,
+      content: project.content,
+    }));
 }

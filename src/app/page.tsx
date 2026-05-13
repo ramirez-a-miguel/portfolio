@@ -17,6 +17,49 @@ import styles from "./home.module.scss";
 
 export const dynamic = "force-dynamic";
 
+const coreStack = [
+  {
+    name: "K8s",
+    label: "Kubernetes",
+    logo: "/logos/kubernetes.svg",
+  },
+  {
+    name: "AWS",
+    label: "Amazon Web Services",
+    logo: "/logos/aws.svg",
+  },
+  {
+    name: "OCI",
+    label: "Oracle Cloud Infrastructure",
+    logo: "/logos/oracle.svg",
+  },
+  {
+    name: "DevSecOps",
+    label: "Security-first delivery",
+    logo: "/logos/devsecops.svg",
+  },
+  {
+    name: "Azure DevOps",
+    label: "Azure DevOps",
+    logo: "/logos/azure-devops.svg",
+  },
+  {
+    name: "GCP",
+    label: "Google Cloud Platform",
+    logo: "/logos/gcp.svg",
+  },
+  {
+    name: "Angular",
+    label: "Angular",
+    logo: "/logos/angular.svg",
+  },
+  {
+    name: "Python",
+    label: "Python",
+    logo: "/logos/python.svg",
+  },
+];
+
 export async function generateMetadata() {
   const { home } = getPortfolioDataSync();
 
@@ -32,10 +75,6 @@ export async function generateMetadata() {
 export default function Home() {
   const { home, about, person, projects } = getPortfolioDataSync();
   const projectCount = projects.length;
-  const primaryStack = Array.from(new Set(projects.flatMap((project) => project.techStack))).slice(
-    0,
-    8,
-  );
 
   return (
     <Column maxWidth="l" fillWidth gap="40" paddingY="24" horizontal="center">
@@ -55,7 +94,7 @@ export default function Home() {
       <div className={styles.homeGrid}>
         <section className={styles.heroPanel}>
           <Column fillWidth gap="24">
-          {home.featured.display && (
+            {home.featured.display && (
               <Badge
                 background="brand-alpha-weak"
                 paddingX="12"
@@ -69,7 +108,7 @@ export default function Home() {
                   <strong>{home.featured.label}</strong>
                 </Row>
               </Badge>
-          )}
+            )}
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
             </Heading>
@@ -97,9 +136,7 @@ export default function Home() {
 
         <aside className={styles.sideGrid} aria-label="Portfolio summary">
           <section className={styles.profilePanel}>
-                {about.avatar.display && (
-              <Avatar src={person.avatar} size="xl" />
-                )}
+            {about.avatar.display && <Avatar src={person.avatar} size="xl" />}
             <Column gap="4" horizontal="center">
               <Text variant="heading-strong-m">{person.name}</Text>
               <Text variant="body-default-s" onBackground="neutral-weak">
@@ -133,10 +170,15 @@ export default function Home() {
           <section className={styles.stackPanel}>
             <Text variant="heading-strong-s">Core stack</Text>
             <div className={styles.stackList}>
-              {primaryStack.map((technology) => (
-                <Tag key={technology} size="s">
-                  {technology}
-                </Tag>
+              {coreStack.map((technology) => (
+                <div
+                  key={technology.name}
+                  className={styles.stackItem}
+                  aria-label={technology.label}
+                  title={technology.label}
+                >
+                  <img src={technology.logo} alt="" aria-hidden="true" />
+                </div>
               ))}
             </div>
           </section>
@@ -157,7 +199,24 @@ export default function Home() {
             All projects
           </Button>
         </div>
-        <Projects />
+        <Projects category="professional" variant="bento" />
+      </section>
+
+      <section className={styles.projectsSection}>
+        <div className={styles.sectionHeader}>
+          <Column gap="8">
+            <Heading as="h2" variant="heading-strong-xl">
+              Personal projects
+            </Heading>
+            <Text onBackground="neutral-weak" variant="body-default-m">
+              Independent products and experiments where I can test ideas end to end.
+            </Text>
+          </Column>
+          <Button href="/work" variant="secondary" size="s" suffixIcon="arrowRight">
+            Explore more
+          </Button>
+        </div>
+        <Projects category="personal" variant="bento" />
       </section>
     </Column>
   );

@@ -95,11 +95,13 @@ export type PortfolioProjectTeamMember = {
 };
 
 export type PortfolioProject = {
+  category?: "professional" | "personal";
   slug: string;
   title: string;
   publishedAt: string;
   summary: string;
   content: string;
+  logo?: string;
   images: string[];
   link: string;
   demoUrl: string;

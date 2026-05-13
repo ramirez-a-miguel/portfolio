@@ -1,5 +1,6 @@
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
+import { Projects } from "@/components/work/Projects";
 import { getPortfolioDataSync } from "@/lib/portfolio-data";
 import { baseURL } from "@/resources";
 import {
@@ -32,7 +33,7 @@ export async function generateMetadata() {
 }
 
 export default function About() {
-  const { about, person, social } = getPortfolioDataSync();
+  const { about, person, social, work } = getPortfolioDataSync();
   const structure = [
     {
       title: about.intro.title,
@@ -53,6 +54,16 @@ export default function About() {
       title: about.technical.title,
       display: about.technical.display,
       items: about.technical.skills.map((skill) => skill.title),
+    },
+    {
+      title: "Selected projects",
+      display: true,
+      items: [],
+    },
+    {
+      title: "Personal projects",
+      display: true,
+      items: [],
     },
   ];
   return (
@@ -296,6 +307,34 @@ export default function About() {
               </Column>
             </>
           )}
+
+          <Column fillWidth gap="16" marginTop="40" marginBottom="40">
+            <Column gap="8">
+              <Heading as="h2" id="Selected projects" variant="display-strong-s">
+                Selected projects
+              </Heading>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                A closer look at project work, demos, and the technology choices behind them.
+              </Text>
+            </Column>
+            <Projects category="professional" range={[1, 2]} />
+            <Button href={work.path} variant="secondary" size="s" arrowIcon>
+              View all projects
+            </Button>
+          </Column>
+
+          <Column fillWidth gap="16" marginBottom="40">
+            <Column gap="8">
+              <Heading as="h2" id="Personal projects" variant="display-strong-s">
+                Personal projects
+              </Heading>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                Side projects and hands-on builds where I explore product ideas, architecture, and
+                implementation details.
+              </Text>
+            </Column>
+            <Projects category="personal" />
+          </Column>
         </Column>
       </Row>
     </Column>

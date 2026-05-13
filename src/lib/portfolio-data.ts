@@ -19,9 +19,13 @@ function cleanStringArray(value: unknown): string[] {
 }
 
 function normalizeProject(project: PortfolioProject): PortfolioProject {
+  const category = project.category === "personal" ? "personal" : "professional";
+
   return {
     ...project,
+    category,
     slug: project.slug.trim(),
+    logo: project.logo?.trim() || "",
     images: cleanStringArray(project.images),
     techStack: cleanStringArray(project.techStack),
     team: Array.isArray(project.team) ? project.team : [],
@@ -53,7 +57,9 @@ export async function savePortfolioData(data: PortfolioData): Promise<PortfolioD
       ...data.person,
       languages: cleanStringArray(data.person.languages),
     },
-    projects: data.projects.map(normalizeProject).filter((project) => project.slug),
+    projects: data.projects
+      .map(normalizeProject)
+      .filter((project) => project.slug && project.title),
   };
 
   await fs.promises.mkdir(path.dirname(CONTENT_PATH), { recursive: true });
