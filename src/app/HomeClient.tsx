@@ -27,41 +27,49 @@ const coreStack = [
     name: "K8s",
     label: "Kubernetes",
     logo: "/logos/kubernetes.svg",
+    docsUrl: "https://kubernetes.io/docs/",
   },
   {
     name: "AWS",
     label: "Amazon Web Services",
     logo: "/logos/aws.svg",
+    docsUrl: "https://docs.aws.amazon.com/",
   },
   {
     name: "OCI",
     label: "Oracle Cloud Infrastructure",
     logo: "/logos/oracle.svg",
+    docsUrl: "https://docs.oracle.com/iaas/Content/",
   },
   {
     name: "DevSecOps",
     label: "Security-first delivery",
     logo: "/logos/devsecops.svg",
+    docsUrl: "https://owasp.org/www-project-devsecops-guideline/",
   },
   {
     name: "Azure DevOps",
     label: "Azure DevOps",
     logo: "/logos/azure-devops.svg",
+    docsUrl: "https://learn.microsoft.com/en-us/azure/devops/?view=azure-devops",
   },
   {
     name: "GCP",
     label: "Google Cloud Platform",
     logo: "/logos/gcp.svg",
+    docsUrl: "https://cloud.google.com/docs/",
   },
   {
     name: "Angular",
     label: "Angular",
     logo: "/logos/angular.svg",
+    docsUrl: "https://angular.dev/overview",
   },
   {
     name: "Python",
     label: "Python",
     logo: "/logos/python.svg",
+    docsUrl: "https://docs.python.org/3/",
   },
 ];
 
@@ -133,6 +141,13 @@ export function HomeClient({
     <>
       <div className={styles.homeGrid}>
         <section className={styles.heroPanel}>
+          <motion.div
+            className={styles.heroBackdrop}
+            aria-hidden="true"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+          />
           <div className={styles.heroLayout}>
             <Column className={styles.heroContent} fillWidth gap="24">
               <div className={styles.heroEyebrow}>{person.role}</div>
@@ -203,14 +218,28 @@ export function HomeClient({
             <Text variant="heading-strong-s">{t("coreStack")}</Text>
             <div className={styles.stackList}>
               {coreStack.map((technology) => (
-                <div
+                <motion.a
                   key={technology.name}
+                  href={technology.docsUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   className={styles.stackItem}
-                  aria-label={technology.label}
-                  title={technology.label}
+                  aria-label={`${technology.label} documentation`}
+                  title={`${technology.label} documentation`}
+                  initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-24px" }}
+                  transition={{ duration: 0.28, ease: "easeOut" }}
+                  whileHover={{
+                    y: -5,
+                    scale: 1.08,
+                    rotate: technology.name === "K8s" ? 4 : 0,
+                  }}
+                  whileTap={{ scale: 0.96 }}
                 >
                   <img src={technology.logo} alt="" aria-hidden="true" />
-                </div>
+                  <span className={styles.stackItemLabel}>{technology.label} documentation</span>
+                </motion.a>
               ))}
             </div>
           </section>
