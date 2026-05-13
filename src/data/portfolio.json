@@ -131,12 +131,7 @@
         {
           "title": "Enterprise Data Platforms",
           "description": "Advising on Oracle database platforms, including Oracle Database, RAC, GoldenGate, Autonomous AI Database, database services, and migration architecture.",
-          "tags": [
-            "Oracle Database",
-            "Oracle RAC",
-            "GoldenGate",
-            "Autonomous Database"
-          ]
+          "tags": ["Oracle Database", "Oracle RAC", "GoldenGate", "Autonomous Database"]
         }
       ]
     }
