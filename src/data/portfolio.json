@@ -421,7 +421,7 @@
       "summary": "A local-first Human Design app prototype for chart reflection, profile management, compatibility insights, psychology journaling, and private AI explanations through Ollama.",
       "content": "Design Compass is a personal Human Design exploration tool built as a full-stack local-first prototype. It includes a React interface for creating and comparing profiles, editing Human Design and astrology fields, viewing a simplified BodyGraph, and generating reflective readings. The backend provides authentication, persisted profile storage, psychology chat sessions backed by Postgres, and local AI recommendations through Ollama. The project is designed around privacy, experimentation, and practical daily-life reflection rather than deterministic guidance.",
       "logo": "",
-      "images": ["/images/background.png"],
+      "images": ["/images/human-design.gif"],
       "link": "",
       "demoUrl": "",
       "demoEmbedUrl": "",
