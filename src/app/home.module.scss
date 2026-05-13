@@ -171,6 +171,28 @@
   padding: 1rem;
 }
 
+.metricPanel {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  min-height: 8.25rem;
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--brand-background-medium) 14%, transparent),
+      color-mix(in srgb, var(--accent-background-medium) 8%, transparent) 58%,
+      color-mix(in srgb, var(--page-background) 76%, transparent)
+    );
+}
+
+.metricPanel::before {
+  width: 2rem;
+  height: 0.2rem;
+  border-radius: 999px;
+  background: var(--portfolio-hover-gradient);
+  content: "";
+}
+
 .stackList {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

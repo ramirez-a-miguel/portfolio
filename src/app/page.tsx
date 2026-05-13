@@ -19,8 +19,7 @@ export async function generateMetadata() {
 }
 
 export default function Home() {
-  const { home, about, person, projects } = getPortfolioDataSync();
-  const projectCount = projects.length;
+  const { home, about, person } = getPortfolioDataSync();
 
   return (
     <Column maxWidth="l" fillWidth gap="40" paddingY="24" horizontal="center">
@@ -41,7 +40,6 @@ export default function Home() {
         home={home}
         about={about}
         person={person}
-        projectCount={projectCount}
         professionalProjects={<Projects category="professional" variant="bento" />}
         personalProjects={<Projects category="personal" variant="bento" />}
       />

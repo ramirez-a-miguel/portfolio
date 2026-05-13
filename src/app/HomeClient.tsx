@@ -116,7 +116,6 @@ type HomeClientProps = {
   home: PortfolioHome;
   about: PortfolioAbout;
   person: PortfolioPerson;
-  projectCount: number;
   professionalProjects: ReactNode;
   personalProjects: ReactNode;
 };
@@ -125,7 +124,6 @@ export function HomeClient({
   home,
   about,
   person,
-  projectCount,
   professionalProjects,
   personalProjects,
 }: HomeClientProps) {
@@ -188,15 +186,15 @@ export function HomeClient({
 
           <div className={styles.metricGrid}>
             <section className={styles.metricPanel}>
-              <Text variant="heading-strong-xl">{projectCount}</Text>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                {t("projectStories")}
+              <Text variant="heading-strong-s">{t("impactCardTitle")}</Text>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                {t("impactCardBody")}
               </Text>
             </section>
             <section className={styles.metricPanel}>
-              <Text variant="heading-strong-xl">10+</Text>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                {t("yearsExperience")}
+              <Text variant="heading-strong-s">{t("trustCardTitle")}</Text>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                {t("trustCardBody")}
               </Text>
             </section>
           </div>

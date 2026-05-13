@@ -22,6 +22,8 @@ export type TranslationKey =
   | "homeFeaturedLabel"
   | "homeHeadline"
   | "homeSubline"
+  | "impactCardBody"
+  | "impactCardTitle"
   | "personalBadge"
   | "personalProjects"
   | "personalProjectsDescription"
@@ -32,7 +34,8 @@ export type TranslationKey =
   | "selectLanguage"
   | "viewProject"
   | "viewProjects"
-  | "yearsExperience"
+  | "trustCardBody"
+  | "trustCardTitle"
   | "liveDemo";
 
 export const translations: Record<LanguageCode, Record<TranslationKey, string>> = {
@@ -52,6 +55,8 @@ export const translations: Record<LanguageCode, Record<TranslationKey, string>> 
     homeHeadline: "Cloud architecture, modernization, and technical advisory",
     homeSubline:
       "I'm Miguel, a Senior Cloud Engineer and Consultant in Amsterdam. I help organizations translate complex business needs into cloud strategy, scalable architecture, and modernization roadmaps.",
+    impactCardBody: "Architecture should make the next move clearer, faster, and safer.",
+    impactCardTitle: "Build for impact",
     personalBadge: "Personal",
     personalProjects: "Personal projects",
     personalProjectsDescription:
@@ -63,7 +68,8 @@ export const translations: Record<LanguageCode, Record<TranslationKey, string>> 
     selectLanguage: "Change language to",
     viewProject: "View project",
     viewProjects: "View projects",
-    yearsExperience: "Years experience",
+    trustCardBody: "Good platforms earn confidence through clarity, resilience, and care.",
+    trustCardTitle: "Engineer trust",
     liveDemo: "Live demo",
   },
   es: {
@@ -82,6 +88,9 @@ export const translations: Record<LanguageCode, Record<TranslationKey, string>> 
     homeHeadline: "Arquitectura cloud, modernización y asesoría técnica",
     homeSubline:
       "Soy Miguel, Senior Cloud Engineer y Consultant en Amsterdam. Ayudo a organizaciones a convertir necesidades de negocio complejas en estrategia cloud, arquitectura escalable y hojas de ruta de modernización.",
+    impactCardBody:
+      "La arquitectura debe hacer que el siguiente paso sea más claro, rápido y seguro.",
+    impactCardTitle: "Crear impacto",
     personalBadge: "Personal",
     personalProjects: "Proyectos personales",
     personalProjectsDescription:
@@ -93,7 +102,8 @@ export const translations: Record<LanguageCode, Record<TranslationKey, string>> 
     selectLanguage: "Cambiar idioma a",
     viewProject: "Ver proyecto",
     viewProjects: "Ver proyectos",
-    yearsExperience: "Años de experiencia",
+    trustCardBody: "Las buenas plataformas generan confianza con claridad, resiliencia y cuidado.",
+    trustCardTitle: "Diseñar confianza",
     liveDemo: "Demo en vivo",
   },
   de: {
@@ -112,6 +122,9 @@ export const translations: Record<LanguageCode, Record<TranslationKey, string>> 
     homeHeadline: "Cloud-Architektur, Modernisierung und technische Beratung",
     homeSubline:
       "Ich bin Miguel, Senior Cloud Engineer und Consultant in Amsterdam. Ich helfe Organisationen, komplexe Geschäftsanforderungen in Cloud-Strategie, skalierbare Architektur und Modernisierungs-Roadmaps zu übersetzen.",
+    impactCardBody:
+      "Architektur sollte den nächsten Schritt klarer, schneller und sicherer machen.",
+    impactCardTitle: "Wirkung schaffen",
     personalBadge: "Persönlich",
     personalProjects: "Persönliche Projekte",
     personalProjectsDescription:
@@ -123,7 +136,8 @@ export const translations: Record<LanguageCode, Record<TranslationKey, string>> 
     selectLanguage: "Sprache wechseln zu",
     viewProject: "Projekt ansehen",
     viewProjects: "Projekte ansehen",
-    yearsExperience: "Jahre Erfahrung",
+    trustCardBody: "Gute Plattformen schaffen Vertrauen durch Klarheit, Resilienz und Sorgfalt.",
+    trustCardTitle: "Vertrauen entwickeln",
     liveDemo: "Live-Demo",
   },
   pt: {
@@ -142,6 +156,8 @@ export const translations: Record<LanguageCode, Record<TranslationKey, string>> 
     homeHeadline: "Arquitetura cloud, modernização e consultoria técnica",
     homeSubline:
       "Sou Miguel, Senior Cloud Engineer e Consultant em Amsterdã. Ajudo organizações a transformar necessidades de negócio complexas em estratégia cloud, arquitetura escalável e roteiros de modernização.",
+    impactCardBody: "A arquitetura deve tornar o próximo passo mais claro, rápido e seguro.",
+    impactCardTitle: "Criar impacto",
     personalBadge: "Pessoal",
     personalProjects: "Projetos pessoais",
     personalProjectsDescription:
@@ -153,7 +169,8 @@ export const translations: Record<LanguageCode, Record<TranslationKey, string>> 
     selectLanguage: "Alterar idioma para",
     viewProject: "Ver projeto",
     viewProjects: "Ver projetos",
-    yearsExperience: "Anos de experiência",
+    trustCardBody: "Boas plataformas conquistam confiança com clareza, resiliência e cuidado.",
+    trustCardTitle: "Projetar confiança",
     liveDemo: "Demo ao vivo",
   },
 };
