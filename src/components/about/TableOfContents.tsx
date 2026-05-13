@@ -1,5 +1,6 @@
 "use client";
 
+import { T } from "@/components/LanguageProvider";
 import { Column, Flex, Text } from "@once-ui-system/core";
 import Link from "next/link";
 import type React from "react";
@@ -84,7 +85,9 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
         <Link className={styles.sidebarLink} href="/certifications">
           <Flex cursor="interactive" className={styles.hover} gap="8" vertical="center">
             <Flex height="1" minWidth="16" background="neutral-strong" />
-            <Text>Certifications</Text>
+            <Text>
+              <T id="certifications" />
+            </Text>
           </Flex>
         </Link>
       </Column>

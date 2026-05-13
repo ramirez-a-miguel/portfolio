@@ -4,11 +4,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
-import type {
-  PortfolioAbout,
-  PortfolioPerson,
-  PortfolioSocialLink,
-} from "@/types/portfolio-data";
+import type { PortfolioAbout, PortfolioPerson, PortfolioSocialLink } from "@/types/portfolio-data";
 import {
   Avatar,
   Button,
