@@ -1,8 +1,16 @@
 "use client";
 
 import { getLanguageCode } from "@/lib/translations";
+import type { LanguageName } from "@/lib/translations";
 import { useLanguage } from "./LanguageProvider";
 import styles from "./LanguageSwitcher.module.scss";
+
+const languageFlags: Record<LanguageName, string> = {
+  English: "🇬🇧",
+  Spanish: "🇪🇸",
+  German: "🇩🇪",
+  Portuguese: "🇵🇹",
+};
 
 export function LanguageSwitcher({
   languages,
@@ -20,14 +28,16 @@ export function LanguageSwitcher({
             key={languageName}
             type="button"
             className={styles.languageButton}
+            data-size={size}
             data-active={language === code}
             aria-pressed={language === code}
             aria-label={`${t("selectLanguage")} ${languageName}`}
             title={`${t("selectLanguage")} ${languageName}`}
-            style={size === "l" ? { minHeight: "2rem", paddingInline: "0.85rem" } : undefined}
             onClick={() => setLanguage(code)}
           >
-            {languageName}
+            <span className={styles.flag} aria-hidden="true">
+              {languageFlags[languageName as LanguageName] ?? languageName.slice(0, 2)}
+            </span>
           </button>
         );
       })}
