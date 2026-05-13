@@ -131,7 +131,12 @@
         {
           "title": "Enterprise Data Platforms",
           "description": "Advising on Oracle database platforms, including Oracle Database, RAC, GoldenGate, Autonomous AI Database, database services, and migration architecture.",
-          "tags": ["Oracle Database", "Oracle RAC", "GoldenGate", "Autonomous Database"]
+          "tags": [
+            "Oracle Database",
+            "Oracle RAC",
+            "GoldenGate",
+            "Autonomous Database"
+          ]
         }
       ]
     }
@@ -173,25 +178,34 @@
     },
     {
       "slug": "secure-cloud-landing-zones",
-      "title": "Secure Cloud Landing Zones and Multi-Cloud Modernization",
+      "title": "AWS Landing Zone Accelerator (LZA) for a Highly Sensitive - Public Sector",
       "publishedAt": "2024-05-01",
-      "summary": "Deloitte cloud consulting work across secure landing zones, DevSecOps, Cloud FinOps, and multi-cloud infrastructure modernization.",
-      "content": "## Overview\n\nAt Deloitte Consulting GmbH, Miguel worked in the Cloud Transformation & Systems Engineering practice on enterprise cloud solutions and infrastructure modernization for customers in the DACH region.\n\n## Focus Areas\n\n- **Secure landing zones**: Designed and delivered landing zones aligned with BSI IT-Grundschutz and BSI C5 standards.\n- **Sovereign cloud proof of concept**: Partnered with AWS and Landing Zone Accelerator teams on a public-sector proof of concept incorporating confidential computing.\n- **Operational documentation**: Created architecture documentation, runbooks, and playbooks to standardize cloud operations.\n- **DevSecOps and FinOps**: Built CI/CD pipelines and implemented Cloud FinOps reporting with Txture to support cost transparency and operational control.\n- **Team enablement**: Supported nearshore onboarding and introduced low-code automation to streamline landing zone deployment.",
+
+      "summary": "Designed and evaluated a highly sensitive multi-account AWS Landing Zone for the public sector using AWS Landing Zone Accelerator (LZA), AWS Organizations, and AWS Control Tower. The project focused on governance, security standardization, and sovereign cloud requirements. After several months of testing, the conclusion was that LZA in 2024 was still too immature for production-grade public sector environments due to operational complexity, tight coupling to AWS-native services, limited deployment flexibility, and difficult troubleshooting compared to Terraform-based Infrastructure as Code approaches.",
+
+      "content": "# AWS Landing Zone Accelerator (LZA) Evaluation for Public Sector\n\n## Project Overview\nWorked at Deloitte together with an AWS Solutions Architect from Prague to design and evaluate a highly sensitive multi-account AWS Landing Zone architecture for the public sector.\n\nThe solution was built using:\n\n- AWS Landing Zone Accelerator (LZA)\n- AWS Organizations\n- AWS Control Tower\n- AWS CDK (TypeScript under the hood)\n- AWS-native CI/CD services\n- Terraform for comparison and evaluation\n\nAt the time, LZA was still relatively new and positioned closer to a proof-of-concept framework than a fully mature enterprise platform.\n\n---\n\n## Positive Outcomes\n\n### Governance and Standardization\nLZA provided strong governance conventions and predefined architectural patterns for:\n\n- security baselines,\n- logging and auditing,\n- networking structures,\n- multi-account management,\n- compliance-oriented setups.\n\nThis significantly accelerated the initial setup of a regulated cloud environment.\n\n### Reduced Platform Engineering Effort\nThe low-code and configuration-driven approach allowed complex AWS environments to be deployed without requiring a large cloud engineering team.\n\n### AWS Native Integration\nLZA integrated tightly with core AWS governance services including:\n\n- AWS Organizations,\n- AWS Control Tower,\n- AWS Config,\n- CloudTrail,\n- Security Hub,\n- SCPs,\n- centralized logging.\n\n---\n\n## Challenges and Limitations\n\n### Immaturity for Production Use\nAfter approximately six months of testing and deployments, the conclusion was that LZA in 2024 was still too immature for highly sensitive production environments.\n\nThe framework behaved more like an evolving reference architecture than a hardened enterprise-grade platform.\n\n### Limited Flexibility\nAlthough LZA exposed predefined templates and low-code configurations, the framework itself was tightly opinionated and strongly coupled to AWS-native services.\n\nCustomization outside AWS-defined patterns became difficult.\n\nCompared to Terraform-based Infrastructure as Code approaches, LZA provided:\n\n- less flexibility,\n- lower portability,\n- reduced reproducibility,\n- more difficult lifecycle management.\n\n### Tight Coupling to AWS CDK and CloudFormation\nUnder the hood, LZA relied heavily on AWS CDK and CloudFormation.\n\nOperational issues often required debugging generated templates and internal accelerator logic rather than simply modifying infrastructure definitions directly.\n\nThis made troubleshooting and recovery during deployment failures difficult.\n\n### CI/CD and Maintenance Complexity\nThe deployment pipeline depended heavily on AWS-native CI/CD tooling.\n\nProblems during deployment frequently required rebuilding or recreating accounts because some AWS resources required long deletion windows.\n\nThis created:\n\n- account sprawl,\n- operational overhead,\n- difficult maintenance workflows,\n- complex cleanup procedures.\n\n### Weak Environment Separation\nOne major architectural concern was the lack of clean separation between:\n\n- development,\n- staging,\n- production deployments.\n\nThe administrative account effectively acted as the central deployment environment, reducing reproducibility and increasing operational risk.\n\n### Sovereign Cloud and Regional Constraints\nLZA was tightly dependent on AWS Control Tower and region-specific AWS services.\n\nIn regions where some services were unavailable, deployments required moving components to alternative AWS regions.\n\nFor sovereign public sector environments with strict data residency requirements, this represented a significant limitation.\n\n---\n\n## Final Assessment\nThe project concluded that AWS Landing Zone Accelerator demonstrated strong governance potential and provided valuable AWS-native architectural conventions.\n\nHowever, in 2024 the framework was still too tightly coupled, operationally complex, and insufficiently flexible for highly regulated public sector environments requiring:\n\n- reproducible deployments,\n- operational transparency,\n- sovereign cloud guarantees,\n- infrastructure portability,\n- advanced customization,\n- and long-term maintainability.\n\nFor these requirements, Terraform-based Infrastructure as Code approaches provided significantly greater flexibility and operational control.",
+
       "images": [],
-      "link": "",
+
+      "link": "https://docs.aws.amazon.com/solutions/landing-zone-accelerator-on-aws/",
       "demoUrl": "",
-      "demoEmbedUrl": "",
-      "repositoryUrl": "",
+      "demoEmbedUrl": "https://www.youtube.com/watch?v=UHS_q1oODYM",
+      "repositoryUrl": "https://github.com/awslabs/landing-zone-accelerator-on-aws?refid=sl_card",
+
       "techStack": [
         "AWS",
         "AWS Landing Zone Accelerator",
+        "AWS Organizations",
+        "AWS Control Tower",
         "AWS CDK",
+        "CloudFormation",
+        "Terraform",
+        "Python",
         "GitHub Actions",
         "Azure DevOps",
-        "Txture",
-        "Python",
-        "Terraform"
+        "Txture"
       ],
+
       "team": [
         {
           "name": "Miguel Ramirez",
@@ -202,9 +216,9 @@
       ]
     },
     {
-      "slug": "vercel-portfolio-admin",
-      "title": "Project Demos",
-      "publishedAt": "2026-05-13",
+      "slug": "",
+      "title": "",
+      "publishedAt": "",
       "summary": "",
       "content": "",
       "images": [],
@@ -212,7 +226,7 @@
       "demoUrl": "",
       "demoEmbedUrl": "",
       "repositoryUrl": "",
-      "techStack": ["Next.js", "React", "TypeScript", "Vercel", "Once UI", "Lucide"],
+      "techStack": ["", "", ""],
       "team": [
         {
           "name": "Miguel Ramirez",
