@@ -8,11 +8,12 @@ import {
   Column,
   Heading,
   Meta,
-  RevealFx,
   Row,
   Schema,
+  Tag,
   Text,
 } from "@once-ui-system/core";
+import styles from "./home.module.scss";
 
 export const dynamic = "force-dynamic";
 
@@ -29,10 +30,15 @@ export async function generateMetadata() {
 }
 
 export default function Home() {
-  const { home, about, person } = getPortfolioDataSync();
+  const { home, about, person, projects } = getPortfolioDataSync();
+  const projectCount = projects.length;
+  const primaryStack = Array.from(new Set(projects.flatMap((project) => project.techStack))).slice(
+    0,
+    8,
+  );
 
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+    <Column maxWidth="l" fillWidth gap="40" paddingY="24" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -46,16 +52,10 @@ export default function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column fillWidth horizontal="center" gap="m">
-        <Column maxWidth="s" horizontal="center" align="center">
+      <div className={styles.homeGrid}>
+        <section className={styles.heroPanel}>
+          <Column fillWidth gap="24">
           {home.featured.display && (
-            <RevealFx
-              fillWidth
-              horizontal="center"
-              paddingTop="16"
-              paddingBottom="32"
-              paddingLeft="12"
-            >
               <Badge
                 background="brand-alpha-weak"
                 paddingX="12"
@@ -66,58 +66,99 @@ export default function Home() {
                 href={home.featured.href}
               >
                 <Row paddingY="2" gap="12" vertical="center">
-                  <strong className="ml-4">{home.featured.label}</strong>
+                  <strong>{home.featured.label}</strong>
                 </Row>
               </Badge>
-            </RevealFx>
           )}
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
             </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
               {home.subline}
             </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              weight="default"
-              arrowIcon
-            >
-              <Row gap="8" vertical="center" paddingRight="4">
+            <Row gap="12" wrap>
+              <Button href="/work" variant="primary" size="m" weight="default" arrowIcon>
+                View projects
+              </Button>
+              <Button
+                id="about"
+                data-border="rounded"
+                href={about.path}
+                variant="secondary"
+                size="m"
+                weight="default"
+                arrowIcon
+              >
+                About Miguel
+              </Button>
+            </Row>
+          </Column>
+        </section>
+
+        <aside className={styles.sideGrid} aria-label="Portfolio summary">
+          <section className={styles.profilePanel}>
                 {about.avatar.display && (
-                  <Avatar
-                    marginRight="8"
-                    style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
+              <Avatar src={person.avatar} size="xl" />
                 )}
-                {about.title}
-              </Row>
-            </Button>
-          </RevealFx>
-        </Column>
-      </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
-      <Column fillWidth gap="m" paddingX="l">
-        <Heading as="h2" variant="heading-strong-xl">
-          Featured projects
-        </Heading>
-        <Text onBackground="neutral-weak" variant="body-default-m">
-          A dedicated project section with tech stack notes, case studies, and Vercel demo links.
-        </Text>
-      </Column>
-      <Projects range={[2]} />
+            <Column gap="4" horizontal="center">
+              <Text variant="heading-strong-m">{person.name}</Text>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                {person.role}
+              </Text>
+            </Column>
+            <Row gap="8" wrap horizontal="center">
+              {person.languages?.map((language) => (
+                <Tag key={language} size="s">
+                  {language}
+                </Tag>
+              ))}
+            </Row>
+          </section>
+
+          <div className={styles.metricGrid}>
+            <section className={styles.metricPanel}>
+              <Text variant="heading-strong-xl">{projectCount}</Text>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Project stories
+              </Text>
+            </section>
+            <section className={styles.metricPanel}>
+              <Text variant="heading-strong-xl">10+</Text>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Years experience
+              </Text>
+            </section>
+          </div>
+
+          <section className={styles.stackPanel}>
+            <Text variant="heading-strong-s">Core stack</Text>
+            <div className={styles.stackList}>
+              {primaryStack.map((technology) => (
+                <Tag key={technology} size="s">
+                  {technology}
+                </Tag>
+              ))}
+            </div>
+          </section>
+        </aside>
+      </div>
+
+      <section className={styles.projectsSection}>
+        <div className={styles.sectionHeader}>
+          <Column gap="8">
+            <Heading as="h2" variant="heading-strong-xl">
+              Featured projects
+            </Heading>
+            <Text onBackground="neutral-weak" variant="body-default-m">
+              Selected work with tech stack notes, case studies, and live demo links.
+            </Text>
+          </Column>
+          <Button href="/work" variant="secondary" size="s" suffixIcon="arrowRight">
+            All projects
+          </Button>
+        </div>
+        <Projects />
+      </section>
     </Column>
   );
 }

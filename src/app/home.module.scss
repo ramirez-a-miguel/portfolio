@@ -1,0 +1,91 @@
+.homeGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 1rem;
+  width: 100%;
+  padding-inline: var(--static-space-24);
+}
+
+.heroPanel,
+.profilePanel,
+.metricPanel,
+.stackPanel {
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--page-background) 72%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+.heroPanel {
+  display: grid;
+  align-content: center;
+  min-height: 420px;
+  padding: clamp(1.25rem, 4vw, 3rem);
+}
+
+.sideGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.profilePanel {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.metricPanel,
+.stackPanel {
+  padding: 1rem;
+}
+
+.stackList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.projectsSection {
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+  padding-inline: var(--static-space-24);
+}
+
+.sectionHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 1rem;
+}
+
+@media (max-width: 960px) {
+  .homeGrid,
+  .sectionHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .heroPanel {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .homeGrid,
+  .projectsSection {
+    padding-inline: var(--static-space-16);
+  }
+
+  .metricGrid {
+    grid-template-columns: 1fr;
+  }
+}
