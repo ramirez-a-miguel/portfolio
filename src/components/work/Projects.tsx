@@ -1,4 +1,4 @@
-import { ProjectCard } from "@/components";
+import { ProjectCard, T } from "@/components";
 import { getProjectEntries } from "@/utils/utils";
 import { Column, Flex, Heading, Row, Tag, Text } from "@once-ui-system/core";
 import Image from "next/image";
@@ -83,7 +83,9 @@ export function Projects({ range, exclude, category, variant = "list" }: Project
               <Flex direction="column" fillWidth gap="16" className={styles.bentoContent}>
                 <Row fillWidth horizontal="between" vertical="start" gap="12">
                   <Text variant="label-default-s" onBackground="brand-weak">
-                    {post.metadata.category === "personal" ? "Personal" : "Featured"}
+                    <T
+                      id={post.metadata.category === "personal" ? "personalBadge" : "featuredBadge"}
+                    />
                   </Text>
                   <Text variant="label-default-s" onBackground="neutral-weak">
                     {new Date(post.metadata.publishedAt).getFullYear()}

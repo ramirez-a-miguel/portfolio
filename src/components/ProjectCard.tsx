@@ -1,5 +1,6 @@
 "use client";
 
+import { T } from "@/components/LanguageProvider";
 import {
   AvatarGroup,
   Carousel,
@@ -88,7 +89,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={href}
                 >
-                  <Text variant="body-default-s">Read case study</Text>
+                  <Text variant="body-default-s">
+                    <T id="readCaseStudy" />
+                  </Text>
                 </SmartLink>
               )}
               {link && (
@@ -97,7 +100,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={link}
                 >
-                  <Text variant="body-default-s">View project</Text>
+                  <Text variant="body-default-s">
+                    <T id="viewProject" />
+                  </Text>
                 </SmartLink>
               )}
               {demoUrl && (
@@ -106,7 +111,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={demoUrl}
                 >
-                  <Text variant="body-default-s">Live demo</Text>
+                  <Text variant="body-default-s">
+                    <T id="liveDemo" />
+                  </Text>
                 </SmartLink>
               )}
               {repositoryUrl && (
@@ -115,7 +122,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={repositoryUrl}
                 >
-                  <Text variant="body-default-s">Repository</Text>
+                  <Text variant="body-default-s">
+                    <T id="repository" />
+                  </Text>
                 </SmartLink>
               )}
             </Flex>

@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 
 import { Fade, Flex, IconButton, Line, Row, ToggleButton } from "@once-ui-system/core";
 
-import { about, display, person, routes, social, work } from "@/resources";
+import { display, person, routes, social } from "@/resources";
 import styles from "./Header.module.scss";
+import { useLanguage } from "./LanguageProvider";
 import { ThemeToggle } from "./ThemeToggle";
 
 type TimeDisplayProps = {
@@ -45,6 +46,7 @@ export default TimeDisplay;
 export const Header = () => {
   const pathname = usePathname() ?? "";
   const navbarSocial = social.filter((item) => item.name === "LinkedIn");
+  const { t } = useLanguage();
 
   return (
     <>
@@ -97,7 +99,7 @@ export const Header = () => {
                     <ToggleButton
                       prefixIcon="person"
                       href="/about"
-                      label={about.label}
+                      label={t("aboutMiguel")}
                       selected={pathname === "/about"}
                     />
                   </Row>
@@ -116,7 +118,7 @@ export const Header = () => {
                     <ToggleButton
                       prefixIcon="grid"
                       href="/work"
-                      label={work.label}
+                      label={t("projects")}
                       selected={pathname.startsWith("/work")}
                     />
                   </Row>
@@ -135,7 +137,7 @@ export const Header = () => {
                     <ToggleButton
                       prefixIcon="document"
                       href="/certifications"
-                      label="Certifications"
+                      label={t("certifications")}
                       selected={pathname.startsWith("/certifications")}
                     />
                   </Row>

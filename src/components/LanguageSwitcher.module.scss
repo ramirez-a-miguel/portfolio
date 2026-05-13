@@ -1,0 +1,32 @@
+.languageList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.languageButton {
+  min-height: 1.75rem;
+  padding: 0 0.65rem;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: 999px;
+  background: var(--neutral-alpha-weak);
+  color: var(--neutral-on-background-strong);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8125rem;
+  line-height: 1;
+  transition:
+    transform var(--transition-micro-medium),
+    border-color var(--transition-micro-medium),
+    background var(--transition-micro-medium),
+    color var(--transition-micro-medium);
+}
+
+.languageButton:hover,
+.languageButton[data-active="true"] {
+  transform: translateY(-1px);
+  border-color: transparent;
+  background: var(--portfolio-tag-hover-gradient);
+  color: #fff;
+}
