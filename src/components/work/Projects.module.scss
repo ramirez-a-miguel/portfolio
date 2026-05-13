@@ -96,7 +96,7 @@
 .bentoMedia {
     position: relative;
     min-height: 0;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 21 / 9;
     overflow: hidden;
     border-bottom: 1px solid var(--neutral-alpha-weak);
     background: var(--neutral-alpha-weak);
@@ -138,7 +138,7 @@
 
 .featuredCard .bentoMedia {
     min-height: 0;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 21 / 9;
 }
 
 .bentoContent {
