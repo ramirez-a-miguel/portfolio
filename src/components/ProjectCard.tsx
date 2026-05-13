@@ -43,6 +43,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <Column fillWidth gap="m">
       {images.length > 0 && (
         <Carousel
+          aspectRatio="16 / 9"
           sizes="(max-width: 960px) 100vw, 960px"
           items={images.map((image) => ({
             slide: image,
