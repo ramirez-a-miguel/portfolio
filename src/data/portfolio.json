@@ -320,7 +320,46 @@
         "Vercel",
         "Material UI",
         "Lucide React",
-        "jsPDF"
+        "jsPDF",
+        "OrbStack"
+      ],
+      "team": [
+        {
+          "name": "Miguel Ramirez",
+          "role": "Owner",
+          "avatar": "/images/ramirez_miguel-avatar.jpg",
+          "linkedIn": "https://www.linkedin.com/in/miguelangelramirezpena/?locale=en_US"
+        }
+      ]
+    },
+    {
+      "category": "personal",
+      "slug": "poc-observability-dash0",
+      "title": "Dash0 Observability Demo",
+      "publishedAt": "2026-04-28",
+      "summary": "A full-stack observability proof of concept using Angular, NestJS, PostgreSQL, OpenTelemetry, Kubernetes, and Dash0.",
+      "content": "Dash0 Observability Demo is a personal proof of concept that instruments a small full-stack application end to end. The Angular frontend records browser document-load and XHR traces, while the NestJS backend emits traces and metrics through OpenTelemetry. The backend exposes item-loading APIs backed by PostgreSQL and includes intentional failure paths for testing error observability. Kubernetes manifests deploy the frontend, backend, Postgres database, and OpenTelemetry Collector, which forwards telemetry to Dash0. A Prometheus-style dashboard definition tracks request rate, error rate, and latency.",
+      "logo": "",
+      "images": ["/images/background.png"],
+      "link": "",
+      "demoUrl": "",
+      "demoEmbedUrl": "",
+      "repositoryUrl": "https://github.com/ramirez-a-miguel/poc-observability-dash0",
+      "techStack": [
+        "Angular",
+        "NestJS",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL",
+        "TypeORM",
+        "OpenTelemetry",
+        "OTLP Collector",
+        "Dash0",
+        "Prometheus",
+        "Kubernetes",
+        "Docker",
+        "Nginx",
+        "OrbStack"
       ],
       "team": [
         {
@@ -339,7 +378,7 @@
       "summary": "A local-first personal data intelligence platform for indexing private files, searching them by keyword and embeddings, and chatting over retrieved context with citations.",
       "content": "Personal OS is a production-ready prototype for turning local documents into a searchable, conversational knowledge base. It scans mounted files, extracts document text, stores metadata and embeddings in Postgres, and supports both keyword search and semantic retrieval. The frontend provides file inventory, search, chat, and lab views, while the backend handles indexing, extraction, embeddings, object storage, and RAG-style answers grounded in the user's own documents. The stack is designed for local experimentation with Docker Compose, MinIO, Ollama, OpenAI-compatible provider support, a local image registry, Kubernetes manifests, and Terraform infrastructure examples.",
       "logo": "",
-      "images": [],
+      "images": ["/images/background.png"],
       "link": "https://github.com/ramirez-a-miguel/personal-os",
       "demoUrl": "",
       "demoEmbedUrl": "",
