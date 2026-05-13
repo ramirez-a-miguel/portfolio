@@ -131,7 +131,12 @@
         {
           "title": "Enterprise Data Platforms",
           "description": "Advising on Oracle database platforms, including Oracle Database, RAC, GoldenGate, Autonomous AI Database, database services, and migration architecture.",
-          "tags": ["Oracle Database", "Oracle RAC", "GoldenGate", "Autonomous Database"]
+          "tags": [
+            "Oracle Database",
+            "Oracle RAC",
+            "GoldenGate",
+            "Autonomous Database"
+          ]
         }
       ]
     }
@@ -316,6 +321,49 @@
         "Material UI",
         "Lucide React",
         "jsPDF"
+      ],
+      "team": [
+        {
+          "name": "Miguel Ramirez",
+          "role": "Owner",
+          "avatar": "/images/ramirez_miguel-avatar.jpg",
+          "linkedIn": "https://www.linkedin.com/in/miguelangelramirezpena/?locale=en_US"
+        }
+      ]
+    },
+    {
+      "category": "personal",
+      "slug": "personal-os",
+      "title": "Personal OS",
+      "publishedAt": "2026-04-26",
+      "summary": "A local-first personal data intelligence platform for indexing private files, searching them by keyword and embeddings, and chatting over retrieved context with citations.",
+      "content": "Personal OS is a production-ready prototype for turning local documents into a searchable, conversational knowledge base. It scans mounted files, extracts document text, stores metadata and embeddings in Postgres, and supports both keyword search and semantic retrieval. The frontend provides file inventory, search, chat, and lab views, while the backend handles indexing, extraction, embeddings, object storage, and RAG-style answers grounded in the user's own documents. The stack is designed for local experimentation with Docker Compose, MinIO, Ollama, OpenAI-compatible provider support, a local image registry, Kubernetes manifests, and Terraform infrastructure examples.",
+      "logo": "",
+      "images": [],
+      "link": "https://github.com/ramirez-a-miguel/personal-os",
+      "demoUrl": "",
+      "demoEmbedUrl": "",
+      "repositoryUrl": "https://github.com/ramirez-a-miguel/personal-os",
+      "techStack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "FastAPI",
+        "Python",
+        "PostgreSQL",
+        "SQLAlchemy",
+        "Pydantic",
+        "LangChain",
+        "OpenAI API",
+        "Ollama",
+        "MinIO",
+        "Docker",
+        "Docker Compose",
+        "Kubernetes",
+        "Terraform",
+        "Nx",
+        "Storybook"
       ],
       "team": [
         {
