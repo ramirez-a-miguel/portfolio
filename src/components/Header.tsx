@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, IconButton, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, Icon, IconButton, Line, Row, Text, ToggleButton } from "@once-ui-system/core";
 
 import { display, person, routes, social } from "@/resources";
 import styles from "./Header.module.scss";
@@ -12,33 +12,61 @@ import { ThemeToggle } from "./ThemeToggle";
 
 type TimeDisplayProps = {
   timeZone: string;
-  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
+  locale?: string;
 };
 
 const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
-  const [currentTime, setCurrentTime] = useState("");
+  const [dateTime, setDateTime] = useState({
+    date: "",
+    time: "",
+  });
 
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
+      const time = new Intl.DateTimeFormat(locale, {
         timeZone,
         hour: "2-digit",
         minute: "2-digit",
-        second: "2-digit",
         hour12: false,
-      };
-      const timeString = new Intl.DateTimeFormat(locale, options).format(now);
-      setCurrentTime(timeString);
+      }).format(now);
+      const date = new Intl.DateTimeFormat(locale, {
+        timeZone,
+        weekday: "short",
+        day: "2-digit",
+        month: "short",
+      }).format(now);
+
+      setDateTime({ date, time });
     };
 
     updateTime();
-    const intervalId = setInterval(updateTime, 1000);
+    const intervalId = setInterval(updateTime, 1000 * 30);
 
     return () => clearInterval(intervalId);
   }, [timeZone, locale]);
 
-  return <>{currentTime}</>;
+  const city = timeZone.split("/").at(-1)?.replaceAll("_", " ") ?? timeZone;
+
+  return (
+    <div className={styles.timePill} suppressHydrationWarning>
+      <span className={styles.flag} aria-label="Netherlands">
+        🇳🇱
+      </span>
+      <span className={styles.locationName}>{city}</span>
+      <span className={styles.timeDivider} aria-hidden="true" />
+      <span className={styles.dateGroup}>
+        <Icon name="calendar" size="xs" onBackground="neutral-weak" />
+        <Text variant="body-default-xs" onBackground="neutral-weak">
+          {dateTime.date || "Today"}
+        </Text>
+      </span>
+      <span className={styles.timeGroup}>
+        <Icon name="clock" size="xs" onBackground="brand-weak" />
+        <Text variant="label-strong-s">{dateTime.time || "--:--"}</Text>
+      </span>
+    </div>
+  );
 };
 
 export default TimeDisplay;
@@ -76,7 +104,7 @@ export const Header = () => {
         }}
       >
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+          {display.location && <Row s={{ hide: true }} />}
         </Row>
         <Row fillWidth horizontal="center">
           <Row

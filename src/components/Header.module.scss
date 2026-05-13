@@ -1,5 +1,68 @@
 @use "./breakpoints.scss" as breakpoints;
 
+.timePill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.25rem;
+    padding: 0.25rem 0.35rem 0.25rem 0.45rem;
+    border: 1px solid var(--neutral-alpha-weak);
+    border-radius: 999px;
+    background:
+        linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--page-background) 82%, transparent),
+            color-mix(in srgb, var(--neutral-background-weak) 70%, transparent)
+        ),
+        color-mix(in srgb, var(--page-background) 76%, transparent);
+    box-shadow:
+        inset 0 1px 0 color-mix(in srgb, #fff 18%, transparent),
+        0 0.75rem 2rem color-mix(in srgb, var(--neutral-background-strong) 12%, transparent);
+    backdrop-filter: blur(18px) saturate(1.25);
+}
+
+.flag {
+    display: grid;
+    width: 1.55rem;
+    height: 1.55rem;
+    place-items: center;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--page-background) 64%, transparent);
+    font-size: 0.95rem;
+    line-height: 1;
+    box-shadow: inset 0 0 0 1px var(--neutral-alpha-weak);
+}
+
+.locationName {
+    color: var(--neutral-on-background-strong);
+    font-size: 0.78rem;
+    font-weight: 650;
+    line-height: 1;
+}
+
+.timeDivider {
+    width: 1px;
+    height: 1.15rem;
+    background: var(--neutral-alpha-medium);
+}
+
+.dateGroup,
+.timeGroup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+}
+
+.timeGroup {
+    padding: 0.35rem 0.55rem;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 20% 15%, color-mix(in srgb, var(--brand-background-strong) 26%, transparent), transparent 40%),
+        color-mix(in srgb, var(--brand-background-medium) 12%, transparent);
+    color: var(--brand-on-background-strong);
+}
+
 .mask {
     pointer-events: none;
     backdrop-filter: blur(0.5rem);
@@ -17,5 +80,11 @@
     .mask {
         transform: rotate(180deg);
         bottom: 0;
+    }
+
+    .dateGroup,
+    .locationName,
+    .timeDivider {
+        display: none;
     }
 }
