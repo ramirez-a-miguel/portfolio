@@ -3,6 +3,8 @@ export const languageCodes = {
   Spanish: "es",
   German: "de",
   Portuguese: "pt",
+  Italian: "it",
+  Dutch: "nl",
 } as const;
 
 export type LanguageName = keyof typeof languageCodes;
@@ -172,6 +174,73 @@ export const translations: Record<LanguageCode, Record<TranslationKey, string>> 
     trustCardBody: "Boas plataformas conquistam confiança com clareza, resiliência e cuidado.",
     trustCardTitle: "Projetar confiança",
     liveDemo: "Demo ao vivo",
+  },
+  it: {
+    aboutMiguel: "Chi è Miguel",
+    allProjects: "Tutti i progetti",
+    buildWith: "Crea il tuo portfolio con",
+    certifications: "Certificazioni",
+    coreStack: "Stack principale",
+    exploreMore: "Scopri di più",
+    featuredBadge: "In evidenza",
+    featuredProjects: "Progetti in evidenza",
+    featuredProjectsDescription:
+      "Lavori selezionati con note sullo stack tecnologico, case study e link alle demo live.",
+    home: "Home",
+    homeFeaturedLabel: "Oracle Cloud - Ruolo attuale",
+    homeHeadline: "Architettura cloud, modernizzazione e consulenza tecnica",
+    homeSubline:
+      "Sono Miguel, Senior Cloud Engineer e Consultant ad Amsterdam. Aiuto le organizzazioni a trasformare esigenze di business complesse in strategia cloud, architetture scalabili e roadmap di modernizzazione.",
+    impactCardBody:
+      "L'architettura dovrebbe rendere il passo successivo più chiaro, rapido e sicuro.",
+    impactCardTitle: "Creare impatto",
+    personalBadge: "Personale",
+    personalProjects: "Progetti personali",
+    personalProjectsDescription:
+      "Prodotti indipendenti ed esperimenti in cui posso testare idee end to end.",
+    projects: "Progetti",
+    projectStories: "Storie di progetto",
+    readCaseStudy: "Leggi il case study",
+    repository: "Repository",
+    selectLanguage: "Cambia lingua in",
+    viewProject: "Vedi progetto",
+    viewProjects: "Vedi progetti",
+    trustCardBody: "Le buone piattaforme conquistano fiducia con chiarezza, resilienza e cura.",
+    trustCardTitle: "Progettare fiducia",
+    liveDemo: "Demo live",
+  },
+  nl: {
+    aboutMiguel: "Over Miguel",
+    allProjects: "Alle projecten",
+    buildWith: "Bouw je portfolio met",
+    certifications: "Certificeringen",
+    coreStack: "Kernstack",
+    exploreMore: "Ontdek meer",
+    featuredBadge: "Uitgelicht",
+    featuredProjects: "Uitgelichte projecten",
+    featuredProjectsDescription:
+      "Geselecteerd werk met notities over de tech stack, casestudy's en links naar live demo's.",
+    home: "Home",
+    homeFeaturedLabel: "Oracle Cloud - Huidige rol",
+    homeHeadline: "Cloudarchitectuur, modernisering en technisch advies",
+    homeSubline:
+      "Ik ben Miguel, Senior Cloud Engineer en Consultant in Amsterdam. Ik help organisaties om complexe bedrijfsbehoeften te vertalen naar cloudstrategie, schaalbare architectuur en moderniseringsroadmaps.",
+    impactCardBody: "Architectuur moet de volgende stap duidelijker, sneller en veiliger maken.",
+    impactCardTitle: "Bouwen voor impact",
+    personalBadge: "Persoonlijk",
+    personalProjects: "Persoonlijke projecten",
+    personalProjectsDescription:
+      "Onafhankelijke producten en experimenten waarin ik ideeën end-to-end kan testen.",
+    projects: "Projecten",
+    projectStories: "Projectverhalen",
+    readCaseStudy: "Lees de casestudy",
+    repository: "Repository",
+    selectLanguage: "Wijzig taal naar",
+    viewProject: "Bekijk project",
+    viewProjects: "Bekijk projecten",
+    trustCardBody: "Goede platforms winnen vertrouwen door duidelijkheid, veerkracht en zorg.",
+    trustCardTitle: "Vertrouwen bouwen",
+    liveDemo: "Live demo",
   },
 };
 

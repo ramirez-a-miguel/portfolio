@@ -1,42 +1,22 @@
 "use client";
 
+import {
+  createEmptyProject,
+  csvToArray,
+  formatPortfolioDraft,
+  hasAdminSession,
+  linesToArray,
+  loadPortfolioContent,
+  loginAdmin,
+  logoutAdmin,
+  parsePortfolioDraft,
+  savePortfolioContent,
+} from "@/services/admin-portfolio.service";
+import type { SaveState } from "@/services/admin-portfolio.service";
 import type { PortfolioData, PortfolioProject } from "@/types/portfolio-data";
 import { Button, Column, Heading, Row, Text } from "@once-ui-system/core";
 import { useEffect, useMemo, useState } from "react";
 import styles from "./admin.module.scss";
-
-type SaveState = "idle" | "saving" | "saved" | "error";
-
-const emptyProject: PortfolioProject = {
-  category: "professional",
-  slug: "new-project",
-  title: "New Project",
-  publishedAt: new Date().toISOString().slice(0, 10),
-  summary: "",
-  content: "## Overview\n\nDescribe the project here.",
-  logo: "",
-  images: [],
-  link: "",
-  demoUrl: "",
-  demoEmbedUrl: "",
-  repositoryUrl: "",
-  techStack: [],
-  team: [],
-};
-
-function linesToArray(value: string): string[] {
-  return value
-    .split("\n")
-    .map((item) => item.trim())
-    .filter(Boolean);
-}
-
-function csvToArray(value: string): string[] {
-  return value
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
-}
 
 function Field({
   label,
@@ -90,9 +70,7 @@ export function AdminPortfolioEditor() {
 
   useEffect(() => {
     const boot = async () => {
-      const session = await fetch("/api/admin/session");
-
-      if (session.ok) {
+      if (await hasAdminSession()) {
         setIsAuthenticated(true);
         await loadContent();
       }
@@ -105,30 +83,28 @@ export function AdminPortfolioEditor() {
 
   const syncContent = (nextContent: PortfolioData) => {
     setContent(nextContent);
-    setJsonDraft(JSON.stringify(nextContent, null, 2));
+    setJsonDraft(formatPortfolioDraft(nextContent));
   };
 
   const loadContent = async () => {
-    const response = await fetch("/api/admin/content");
-
-    if (!response.ok) {
-      setMessage("Unable to load portfolio content.");
-      return;
+    try {
+      syncContent(await loadPortfolioContent());
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Unable to load portfolio content.");
     }
-
-    syncContent((await response.json()) as PortfolioData);
   };
 
   const login = async () => {
     setMessage("");
-    const response = await fetch("/api/admin/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    });
 
-    if (!response.ok) {
-      setMessage("Login failed. Check ADMIN_USERNAME and ADMIN_PASSWORD.");
+    try {
+      await loginAdmin(username, password);
+    } catch (error) {
+      setMessage(
+        error instanceof Error
+          ? error.message
+          : "Login failed. Check ADMIN_USERNAME and ADMIN_PASSWORD.",
+      );
       return;
     }
 
@@ -138,7 +114,7 @@ export function AdminPortfolioEditor() {
   };
 
   const logout = async () => {
-    await fetch("/api/admin/logout", { method: "POST" });
+    await logoutAdmin();
     setIsAuthenticated(false);
     setContent(null);
     setJsonDraft("");
@@ -161,10 +137,7 @@ export function AdminPortfolioEditor() {
   const addProject = () => {
     updateContent((current) => ({
       ...current,
-      projects: [
-        ...current.projects,
-        { ...emptyProject, slug: `project-${current.projects.length + 1}` },
-      ],
+      projects: [...current.projects, createEmptyProject(current.projects.length + 1)],
     }));
   };
 
@@ -177,7 +150,7 @@ export function AdminPortfolioEditor() {
 
   const applyJson = () => {
     try {
-      syncContent(JSON.parse(jsonDraft) as PortfolioData);
+      syncContent(parsePortfolioDraft(jsonDraft));
       setMessage("JSON applied. Save to publish the changes.");
     } catch {
       setMessage("The JSON is not valid yet.");
@@ -190,20 +163,14 @@ export function AdminPortfolioEditor() {
     setSaveState("saving");
     setMessage("");
 
-    const response = await fetch("/api/admin/content", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(content),
-    });
-
-    if (!response.ok) {
-      const error = await response.json().catch(() => ({ message: "Unable to save content." }));
+    try {
+      syncContent(await savePortfolioContent(content));
+    } catch (error) {
       setSaveState("error");
-      setMessage(error.message);
+      setMessage(error instanceof Error ? error.message : "Unable to save content.");
       return;
     }
 
-    syncContent((await response.json()) as PortfolioData);
     setSaveState("saved");
     setMessage("Saved. Public pages will use the updated content.");
   };

@@ -10,6 +10,8 @@ const languageFlags: Record<LanguageName, string> = {
   Spanish: "🇪🇸",
   German: "🇩🇪",
   Portuguese: "🇵🇹",
+  Italian: "🇮🇹",
+  Dutch: "🇳🇱",
 };
 
 export function LanguageSwitcher({

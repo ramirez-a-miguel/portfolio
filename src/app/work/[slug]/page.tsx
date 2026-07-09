@@ -2,8 +2,13 @@ import { CustomMDX, ScrollToHash } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { getPortfolioDataSync } from "@/lib/portfolio-data";
 import { baseURL } from "@/resources";
+import {
+  getProjectAvatars,
+  getProjectBySlug,
+  getProjectEntries,
+  getSlugPath,
+} from "@/services/project.service";
 import { formatDate } from "@/utils/formatDate";
-import { getProjectEntries } from "@/utils/utils";
 import {
   AvatarGroup,
   Column,
@@ -35,12 +40,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string | string[] }>;
 }): Promise<Metadata> {
   const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug)
-    ? routeParams.slug.join("/")
-    : routeParams.slug || "";
-
-  const projects = getProjectEntries();
-  const project = projects.find((project) => project.slug === slugPath);
+  const slugPath = getSlugPath(routeParams.slug);
+  const project = getProjectBySlug(slugPath);
   const { work } = getPortfolioDataSync();
 
   if (!project) return {};
@@ -60,21 +61,15 @@ export default async function Project({
   params: Promise<{ slug: string | string[] }>;
 }) {
   const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug)
-    ? routeParams.slug.join("/")
-    : routeParams.slug || "";
-
-  const project = getProjectEntries().find((project) => project.slug === slugPath);
+  const slugPath = getSlugPath(routeParams.slug);
+  const project = getProjectBySlug(slugPath);
   const { about, person, work } = getPortfolioDataSync();
 
   if (!project) {
     notFound();
   }
 
-  const avatars =
-    project.metadata.team?.map((person) => ({
-      src: person.avatar,
-    })) || [];
+  const avatars = getProjectAvatars(project);
 
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">

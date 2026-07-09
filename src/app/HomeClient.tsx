@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/components/LanguageProvider";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { coreStack } from "@/services/home-content.service";
 import type { PortfolioAbout, PortfolioHome, PortfolioPerson } from "@/types/portfolio-data";
 import { Avatar, Button, Column, Heading, Row, Text } from "@once-ui-system/core";
 import { motion } from "framer-motion";
@@ -21,57 +22,6 @@ type AnimatedIconComponent = ForwardRefExoticComponent<
     size?: number;
   } & RefAttributes<AnimatedIconHandle>
 >;
-
-const coreStack = [
-  {
-    name: "K8s",
-    label: "Kubernetes",
-    logo: "/logos/kubernetes.svg",
-    docsUrl: "https://kubernetes.io/docs/",
-  },
-  {
-    name: "AWS",
-    label: "Amazon Web Services",
-    logo: "/logos/aws.svg",
-    docsUrl: "https://docs.aws.amazon.com/",
-  },
-  {
-    name: "OCI",
-    label: "Oracle Cloud Infrastructure",
-    logo: "/logos/oracle.svg",
-    docsUrl: "https://docs.oracle.com/iaas/Content/",
-  },
-  {
-    name: "DevSecOps",
-    label: "Security-first delivery",
-    logo: "/logos/devsecops.svg",
-    docsUrl: "https://owasp.org/www-project-devsecops-guideline/",
-  },
-  {
-    name: "Azure DevOps",
-    label: "Azure DevOps",
-    logo: "/logos/azure-devops.svg",
-    docsUrl: "https://learn.microsoft.com/en-us/azure/devops/?view=azure-devops",
-  },
-  {
-    name: "GCP",
-    label: "Google Cloud Platform",
-    logo: "/logos/gcp.svg",
-    docsUrl: "https://cloud.google.com/docs/",
-  },
-  {
-    name: "Angular",
-    label: "Angular",
-    logo: "/logos/angular.svg",
-    docsUrl: "https://angular.dev/overview",
-  },
-  {
-    name: "Python",
-    label: "Python",
-    logo: "/logos/python.svg",
-    docsUrl: "https://docs.python.org/3/",
-  },
-];
 
 const heroSignals: Array<{
   label: string;

@@ -61,3 +61,5 @@ Set `NEXT_PUBLIC_BASE_URL` for production SEO URLs. Without it, the app falls ba
 ## Source
 
 The portfolio content was updated from `src/assets/cv_ramirez_miguel.pdf`.
+
+## add language support

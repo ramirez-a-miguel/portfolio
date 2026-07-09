@@ -1,44 +1,25 @@
 import { ProjectCard, T } from "@/components";
-import { getProjectEntries } from "@/utils/utils";
+import {
+  getProjectLogo,
+  getProjectYear,
+  normalizePublicImagePath,
+  selectProjectEntries,
+} from "@/services/project.service";
+import type { ProjectCategory, ProjectRange } from "@/services/project.service";
 import { Column, Flex, Heading, Row, Tag, Text } from "@once-ui-system/core";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Projects.module.scss";
 
 interface ProjectsProps {
-  range?: [number, number?];
+  range?: ProjectRange;
   exclude?: string[];
-  category?: "professional" | "personal";
+  category?: ProjectCategory;
   variant?: "list" | "bento";
 }
 
-function normalizePublicImagePath(src: string) {
-  return src.startsWith("/public/") ? src.replace("/public", "") : src;
-}
-
-function getProjectLogo(logo?: string, image?: string) {
-  return normalizePublicImagePath(logo || image || "/images/projects-banner.jpg");
-}
-
 export function Projects({ range, exclude, category, variant = "list" }: ProjectsProps) {
-  let allProjects = getProjectEntries();
-
-  // Exclude by slug (exact match)
-  if (exclude && exclude.length > 0) {
-    allProjects = allProjects.filter((post) => !exclude.includes(post.slug));
-  }
-
-  if (category) {
-    allProjects = allProjects.filter((post) => post.metadata.category === category);
-  }
-
-  const sortedProjects = allProjects.sort((a, b) => {
-    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
-  });
-
-  const displayedProjects = range
-    ? sortedProjects.slice(range[0] - 1, range[1] ?? sortedProjects.length)
-    : sortedProjects;
+  const displayedProjects = selectProjectEntries({ range, exclude, category });
 
   if (variant === "bento") {
     return (
@@ -88,7 +69,7 @@ export function Projects({ range, exclude, category, variant = "list" }: Project
                     />
                   </Text>
                   <Text variant="label-default-s" onBackground="neutral-weak">
-                    {new Date(post.metadata.publishedAt).getFullYear()}
+                    {getProjectYear(post)}
                   </Text>
                 </Row>
                 <Column gap="8">

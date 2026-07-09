@@ -1,6 +1,7 @@
 "use client";
 
 import { T } from "@/components/LanguageProvider";
+import type { TranslationKey } from "@/lib/translations";
 import {
   AvatarGroup,
   Carousel,
@@ -39,6 +40,37 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   repositoryUrl,
   techStack = [],
 }) => {
+  const projectLinks: Array<{
+    href: string;
+    label: TranslationKey;
+    suffixIcon: "arrowRight" | "arrowUpRightFromSquare" | "github";
+  }> = [
+    ...(content?.trim()
+      ? [{ href, label: "readCaseStudy" as const, suffixIcon: "arrowRight" as const }]
+      : []),
+    ...(link
+      ? [
+          {
+            href: link,
+            label: "viewProject" as const,
+            suffixIcon: "arrowUpRightFromSquare" as const,
+          },
+        ]
+      : []),
+    ...(demoUrl
+      ? [
+          {
+            href: demoUrl,
+            label: "liveDemo" as const,
+            suffixIcon: "arrowUpRightFromSquare" as const,
+          },
+        ]
+      : []),
+    ...(repositoryUrl
+      ? [{ href: repositoryUrl, label: "repository" as const, suffixIcon: "github" as const }]
+      : []),
+  ];
+
   return (
     <Column fillWidth gap="m">
       {images.length > 0 && (
@@ -84,50 +116,18 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               </Row>
             )}
             <Flex gap="24" wrap>
-              {content?.trim() && (
+              {projectLinks.map((projectLink) => (
                 <SmartLink
-                  suffixIcon="arrowRight"
+                  key={`${projectLink.href}-${projectLink.label}`}
+                  suffixIcon={projectLink.suffixIcon}
                   style={{ margin: "0", width: "fit-content" }}
-                  href={href}
+                  href={projectLink.href}
                 >
                   <Text variant="body-default-s">
-                    <T id="readCaseStudy" />
+                    <T id={projectLink.label} />
                   </Text>
                 </SmartLink>
-              )}
-              {link && (
-                <SmartLink
-                  suffixIcon="arrowUpRightFromSquare"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={link}
-                >
-                  <Text variant="body-default-s">
-                    <T id="viewProject" />
-                  </Text>
-                </SmartLink>
-              )}
-              {demoUrl && (
-                <SmartLink
-                  suffixIcon="arrowUpRightFromSquare"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={demoUrl}
-                >
-                  <Text variant="body-default-s">
-                    <T id="liveDemo" />
-                  </Text>
-                </SmartLink>
-              )}
-              {repositoryUrl && (
-                <SmartLink
-                  suffixIcon="github"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={repositoryUrl}
-                >
-                  <Text variant="body-default-s">
-                    <T id="repository" />
-                  </Text>
-                </SmartLink>
-              )}
+              ))}
             </Flex>
           </Column>
         )}

@@ -1,5 +1,5 @@
 import { baseURL, routes as routesConfig } from "@/resources";
-import { getProjectEntries } from "@/utils/utils";
+import { getProjectEntries } from "@/services/project.service";
 
 export default async function sitemap() {
   const workRoutes = getProjectEntries().map((project) => ({

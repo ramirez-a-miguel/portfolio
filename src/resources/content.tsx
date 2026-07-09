@@ -9,7 +9,7 @@ const person: Person = {
   avatar: "/images/ramirez_miguel-avatar.jpg",
   email: "miguel.ramirez@gmx.de",
   location: "Europe/Amsterdam",
-  languages: ["Spanish", "German", "English", "Portuguese"],
+  languages: ["Spanish", "German", "English", "Portuguese", "Italian", "Dutch"],
 };
 
 const social: Social = [
